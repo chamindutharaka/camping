@@ -17,31 +17,31 @@ export function Footer() {
 
   return (
     <>
-      <footer className="no-print bg-[#020D0D] pt-14 pb-28 text-[#F4FBF5] lg:pb-14">
+      <footer className="no-print bg-[#092328] pt-14 pb-28 text-white lg:pb-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 md:grid-cols-3">
             <div>
               <div className="flex items-center gap-3">
-                <BrandLogo size={44} className="ring-1 ring-[#8EB69B]/40" />
+                <BrandLogo size={44} className="ring-1 ring-[#8BBB92]/40" />
                 <div>
-                  <h3 className="font-display text-xl font-bold text-[#F4FBF5]">
+                  <h3 className="font-display text-xl font-bold text-white">
                     {t.brand.name}
                   </h3>
-                  <p className="text-xs text-[#8EB69B]">{t.footer.tagline}</p>
+                  <p className="text-xs text-[#8BBB92]">{t.footer.tagline}</p>
                 </div>
               </div>
             </div>
 
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#8EB69B]">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#8BBB92]">
                 {t.footer.addressLabel}
               </p>
-              <p className="mt-2 text-sm text-[#DAF1DE]/90">{t.brand.location}</p>
+              <p className="mt-2 text-sm text-white/90">{t.brand.location}</p>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#8EB69B] hover:text-[#F4FBF5] hover:underline"
+                className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#8BBB92] hover:text-white hover:underline"
               >
                 <span>{t.footer.mapLinkText}</span>
                 <ExternalLink className="h-3.5 w-3.5" />
@@ -50,14 +50,14 @@ export function Footer() {
 
             <div className="space-y-3">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[#8EB69B]">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#8BBB92]">
                   {t.footer.callLabel}
                 </p>
                 <a
                   href="tel:0702156828"
-                  className="mt-1.5 inline-flex items-center gap-2 text-base font-bold text-[#F4FBF5] hover:text-[#8EB69B]"
+                  className="mt-1.5 inline-flex items-center gap-2 text-base font-bold text-white hover:text-[#8BBB92]"
                 >
-                  <Phone className="h-4 w-4 text-[#8EB69B]" />
+                  <Phone className="h-4 w-4 text-[#8BBB92]" />
                   <span>{t.brand.phoneDisplay}</span>
                 </a>
               </div>
@@ -66,7 +66,7 @@ export function Footer() {
                   href={FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#DAF1DE]/80 hover:text-[#8EB69B]"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-white/80 hover:text-[#8BBB92]"
                 >
                   <span>{t.footer.facebookLabel}</span>
                   <ExternalLink className="h-3.5 w-3.5" />
@@ -75,7 +75,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-10 border-t border-[#8EB69B]/20 pt-6 text-xs text-[#8EB69B]/75">
+          <div className="mt-10 border-t border-[#8BBB92]/20 pt-6 text-xs text-[#8BBB92]/75">
             © {new Date().getFullYear()} {t.footer.rights}
           </div>
         </div>
@@ -87,7 +87,7 @@ export function Footer() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="no-print fixed right-4 bottom-24 z-30 flex h-13 w-13 items-center justify-center rounded-full bg-[#163832] text-[#DAF1DE] shadow-xl shadow-black/30 ring-1 ring-[#8EB69B]/40 transition-transform hover:scale-105 hover:bg-[#235347] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DAF1DE] lg:right-6 lg:bottom-6"
+        className="no-print fixed right-4 bottom-24 z-30 flex h-13 w-13 items-center justify-center rounded-full bg-[#12544F] text-white shadow-xl shadow-black/30 ring-1 ring-[#8BBB92]/40 transition-transform hover:scale-105 hover:bg-[#2A835F] focus:outline-none focus-visible:ring-2 focus-visible:ring-white lg:right-6 lg:bottom-6"
       >
         <MessageCircle className="h-6 w-6" />
       </a>
