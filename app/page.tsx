@@ -11,7 +11,7 @@ import { Footer } from "@/components/ui/Footer";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white text-[#092328]">
+    <div className="min-h-screen bg-white text-[#111613]">
       <Header />
 
       <main>
@@ -30,7 +30,7 @@ export default function HomePage() {
                 aria-label="Booking summary"
                 className="hidden lg:col-span-4 lg:block lg:py-24"
               >
-                <div className="sticky top-24 rounded-3xl bg-white p-6 shadow-xl shadow-[#092328]/8 ring-1 ring-[#092328]/12">
+                <div className="sticky top-24 rounded-3xl bg-white p-6 shadow-xl shadow-black/6 ring-1 ring-black/10">
                   <BookingPanel />
                 </div>
               </aside>

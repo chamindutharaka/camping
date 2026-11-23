@@ -15,13 +15,13 @@ export function PolicyAndFaqSection() {
   return (
     <>
       {/* Policy & Confirmation */}
-      <section id="policy" className="no-print bg-[#f6f9f7] py-16 sm:py-24">
+      <section id="policy" className="no-print bg-[#F7FAF8] py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#12544F]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#0A5C36]">
               {t.policy.eyebrow}
             </p>
-            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#092328] sm:text-4xl">
+            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#111613] sm:text-4xl">
               {t.policy.title}
             </h2>
             <p className="mt-3 text-base text-black/65">{t.policy.subtitle}</p>
@@ -35,9 +35,9 @@ export function PolicyAndFaqSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className="rounded-3xl bg-white p-6 ring-1 ring-[#092328]/10"
+                className="rounded-3xl bg-white p-6 ring-1 ring-black/8"
               >
-                <h3 className="font-display text-lg font-bold text-[#092328]">
+                <h3 className="font-display text-lg font-bold text-[#111613]">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-black/70">
@@ -53,10 +53,10 @@ export function PolicyAndFaqSection() {
       <section id="faq" className="no-print bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#12544F]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#0A5C36]">
               {t.faq.eyebrow}
             </p>
-            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#092328] sm:text-4xl">
+            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#111613] sm:text-4xl">
               {t.faq.title}
             </h2>
           </div>
@@ -67,17 +67,17 @@ export function PolicyAndFaqSection() {
               return (
                 <div
                   key={faq.q}
-                  className="overflow-hidden rounded-2xl bg-[#f6f9f7] ring-1 ring-[#092328]/10"
+                  className="overflow-hidden rounded-2xl bg-[#F7FAF8] ring-1 ring-black/8"
                 >
                   <button
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="flex min-h-[56px] w-full items-center justify-between gap-4 px-5 py-4 text-left font-display text-base font-bold text-[#092328] cursor-pointer"
+                    className="flex min-h-[56px] w-full items-center justify-between gap-4 px-5 py-4 text-left font-display text-base font-bold text-[#111613] cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`h-5 w-5 shrink-0 text-[#12544F] transition-transform duration-200 ${
+                      className={`h-5 w-5 shrink-0 text-[#0A5C36] transition-transform duration-200 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />

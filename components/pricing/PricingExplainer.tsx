@@ -26,13 +26,13 @@ export function PricingExplainer() {
   return (
     <section
       id="pricing"
-      className="no-print relative overflow-hidden bg-[#092328] py-16 text-white sm:py-24"
+      className="no-print relative overflow-hidden bg-[#111613] py-16 text-white sm:py-24"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           {/* Left: Animated Bar Chart */}
           <div className="lg:col-span-7">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#8BBB92]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4EA879]">
               {t.pricingExplainer.eyebrow}
             </p>
             <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -45,7 +45,7 @@ export function PricingExplainer() {
             {/* Legend */}
             <div className="mt-6 flex flex-wrap gap-5 text-xs font-medium text-white/80">
               <span className="inline-flex items-center gap-2">
-                <span className="h-3 w-3 rounded-sm bg-[#2A835F]" />
+                <span className="h-3 w-3 rounded-sm bg-[#0D7043]" />
                 {t.pricingExplainer.ourPriceLabel}
               </span>
               <span className="inline-flex items-center gap-2">
@@ -82,9 +82,9 @@ export function PricingExplainer() {
                           delay: idx * 0.08,
                           ease: [0.22, 1, 0.36, 1],
                         }}
-                        className="relative z-10 flex w-10 items-start justify-center rounded-t-xl bg-gradient-to-t from-[#12544F] via-[#2A835F] to-[#8BBB92] pt-2 sm:w-12"
+                        className="relative z-10 flex w-10 items-start justify-center rounded-t-xl bg-gradient-to-t from-[#0A5C36] via-[#0D7043] to-[#4EA879] pt-2 sm:w-12"
                       >
-                        <span className="text-xs font-extrabold text-[#092328]">
+                        <span className="text-xs font-extrabold text-white">
                           {d.ourMult}×
                         </span>
                       </motion.div>
@@ -98,7 +98,7 @@ export function PricingExplainer() {
             </div>
           </div>
 
-          {/* Right: Trip Example Card */}
+          {/* Right: Clean Rate Breakdown Table Card (replaces AI Trip Example widget) */}
           <motion.div
             initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,25 +106,32 @@ export function PricingExplainer() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5"
           >
-            <div className="rounded-3xl border border-[#8BBB92]/30 bg-[#12544F]/35 p-7 backdrop-blur-md">
-              <span className="inline-block rounded-full bg-[#8BBB92]/20 px-3 py-1 text-xs font-bold text-[#8BBB92]">
-                {t.pricingExplainer.exampleBadge}
-              </span>
-              <h3 className="font-display mt-4 text-2xl font-bold text-white">
+            <div className="rounded-3xl border border-white/14 bg-white/5 p-7">
+              <h3 className="font-display text-xl font-bold text-white">
                 {t.pricingExplainer.exampleHeading}
               </h3>
-              <p className="mt-3 text-3xl font-extrabold text-[#8BBB92]">
-                {t.pricingExplainer.exampleBody}
-              </p>
-              <div className="mt-2 flex items-center gap-3">
-                <span className="text-sm text-white/60 line-through">
-                  {t.pricingExplainer.exampleInstead}
-                </span>
-                <span className="rounded-full bg-[#2A835F] px-3 py-1 text-xs font-bold text-white">
-                  {t.pricingExplainer.exampleSave}
-                </span>
+
+              <div className="mt-5 divide-y divide-white/10 text-sm">
+                <div className="flex items-center justify-between py-3">
+                  <span className="text-white/80">1 Day (1×)</span>
+                  <span className="font-bold text-white">LKR 900</span>
+                </div>
+                <div className="flex items-center justify-between py-3">
+                  <span className="text-white/80">2 Days (1.5×)</span>
+                  <span className="font-bold text-white">LKR 1,350</span>
+                </div>
+                <div className="flex items-center justify-between py-3">
+                  <span className="text-white/80">3 Days (2×)</span>
+                  <div className="text-right">
+                    <span className="font-bold text-white">LKR 1,800</span>
+                    <span className="ml-2 text-xs text-white/50 line-through">
+                      LKR 2,700
+                    </span>
+                  </div>
+                </div>
               </div>
-              <p className="mt-5 border-t border-white/12 pt-4 text-xs leading-relaxed text-white/75">
+
+              <p className="mt-4 border-t border-white/12 pt-4 text-xs leading-relaxed text-[#D1E7DA]">
                 {t.booking.eveningPickupLabel}: {t.booking.eveningPickupHint}
               </p>
             </div>
@@ -134,7 +141,7 @@ export function PricingExplainer() {
         {/* How It Works 3 Steps */}
         <div className="mt-20 border-t border-white/12 pt-14">
           <div className="max-w-xl">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#8BBB92]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4EA879]">
               {t.howItWorks.eyebrow}
             </p>
             <h2 className="font-display mt-2 text-2xl font-bold text-white sm:text-3xl">
@@ -152,7 +159,7 @@ export function PricingExplainer() {
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="rounded-3xl border border-white/12 bg-white/4 p-6"
               >
-                <span className="font-display text-2xl font-bold text-[#8BBB92]">
+                <span className="font-display text-2xl font-bold text-[#4EA879]">
                   {step.num}
                 </span>
                 <h3 className="font-display mt-3 text-lg font-bold text-white">

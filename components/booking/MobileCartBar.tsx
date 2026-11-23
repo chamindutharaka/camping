@@ -57,13 +57,13 @@ export function MobileCartBar() {
         <button
           type="button"
           onClick={() => setDrawerOpen(true)}
-          className="flex min-h-[56px] w-full items-center justify-between rounded-2xl bg-[#092328]/95 px-4 py-3 text-white shadow-2xl shadow-black/40 backdrop-blur-md ring-1 ring-[#8BBB92]/25 cursor-pointer"
+          className="flex min-h-[56px] w-full items-center justify-between rounded-2xl bg-[#111613]/95 px-4 py-3 text-white shadow-2xl shadow-black/40 backdrop-blur-md ring-1 ring-white/15 cursor-pointer"
         >
           <div className="flex items-center gap-3">
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-[#12544F] text-white">
+            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-[#0A5C36] text-white">
               <ShoppingBag className="h-5 w-5" />
               {totalCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-white px-1 text-[11px] font-extrabold text-[#092328]">
+                <span className="absolute -top-1.5 -right-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-white px-1 text-[11px] font-extrabold text-[#111613]">
                   {totalCount}
                 </span>
               )}
@@ -79,7 +79,7 @@ export function MobileCartBar() {
             </div>
           </div>
 
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#2A835F] px-4 py-2 text-xs font-bold text-white">
+          <span className="inline-flex items-center gap-1 rounded-full bg-[#0A5C36] px-4 py-2 text-xs font-bold text-white">
             <span>{t.nav.cart}</span>
             <ChevronUp className="h-4 w-4" />
           </span>
@@ -110,13 +110,13 @@ export function MobileCartBar() {
               className="relative z-10 max-h-[90vh] w-full overflow-y-auto rounded-t-[28px] bg-white p-5 pb-8 shadow-2xl"
             >
               <div className="mb-3 flex justify-center">
-                <span className="h-1.5 w-12 rounded-full bg-[#092328]/20" />
+                <span className="h-1.5 w-12 rounded-full bg-black/20" />
               </div>
               <button
                 type="button"
                 onClick={() => setDrawerOpen(false)}
                 aria-label="Close booking drawer"
-                className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#f6f9f7] text-[#092328] hover:bg-[#8BBB92]/25 cursor-pointer"
+                className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#F7FAF8] text-[#111613] hover:bg-[#EBF5EF] cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>

@@ -134,9 +134,9 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
   return (
     <div className="flex flex-col gap-5">
       {/* Header Row */}
-      <div className="flex items-center justify-between border-b border-[#092328]/12 pb-3.5">
+      <div className="flex items-center justify-between border-b border-black/10 pb-3.5">
         <div>
-          <h3 className="font-display text-lg font-bold text-[#092328]">
+          <h3 className="font-display text-lg font-bold text-[#111613]">
             {t.booking.drawerTitle}
           </h3>
           <p className="text-xs text-black/55">
@@ -157,26 +157,26 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
 
       {/* Package Badge / Warning */}
       {pricing.activePackageName && (
-        <div className="flex items-center justify-between rounded-2xl bg-[#8BBB92]/25 px-3.5 py-2.5 text-xs font-semibold text-[#092328] ring-1 ring-[#2A835F]/30">
+        <div className="flex items-center justify-between rounded-2xl bg-[#EBF5EF] px-3.5 py-2.5 text-xs font-semibold text-[#111613] ring-1 ring-[#0A5C36]/25">
           <span>
             {t.booking.packageActive}: {pricing.activePackageName}
           </span>
-          <span className="text-[#12544F]">
+          <span className="text-[#0A5C36]">
             −{formatLKR(pricing.packageDiscount)}
           </span>
         </div>
       )}
 
       {packageEditedWarning && !pricing.activePackageName && totalQty > 0 && (
-        <p className="rounded-xl bg-[#f6f9f7] px-3 py-2 text-xs font-medium text-[#12544F] ring-1 ring-[#092328]/10">
+        <p className="rounded-xl bg-[#F7FAF8] px-3 py-2 text-xs font-medium text-[#0A5C36] ring-1 ring-black/10">
           {t.booking.packageRemovedNote}
         </p>
       )}
 
       {/* Cart Items or Empty State */}
       {pricing.lines.length === 0 ? (
-        <div className="rounded-2xl bg-[#f6f9f7] p-6 text-center ring-1 ring-[#092328]/8">
-          <p className="font-display text-base font-bold text-[#092328]">
+        <div className="rounded-2xl bg-[#F7FAF8] p-6 text-center ring-1 ring-black/8">
+          <p className="font-display text-base font-bold text-[#111613]">
             {t.booking.emptyCartTitle}
           </p>
           <p className="mt-1 text-xs leading-relaxed text-black/60">
@@ -185,7 +185,7 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
           <a
             href="#gear"
             onClick={onCloseDrawer}
-            className="mt-4 inline-flex min-h-[40px] items-center rounded-full bg-[#092328] px-4 py-2 text-xs font-bold text-white hover:bg-[#12544F]"
+            className="mt-4 inline-flex min-h-[40px] items-center rounded-full bg-[#111613] px-4 py-2 text-xs font-bold text-white hover:bg-[#0A5C36]"
           >
             {t.booking.browseGearBtn}
           </a>
@@ -199,10 +199,10 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="flex items-center justify-between gap-2 rounded-2xl bg-[#f6f9f7] px-3.5 py-2.5"
+                className="flex items-center justify-between gap-2 rounded-2xl bg-[#F7FAF8] px-3.5 py-2.5"
               >
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-semibold text-[#092328]">
+                  <p className="truncate text-sm font-semibold text-[#111613]">
                     {line.name}
                   </p>
                   <p className="text-[11px] text-black/55">
@@ -214,7 +214,7 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center rounded-full bg-white ring-1 ring-[#092328]/15">
+                  <div className="flex items-center rounded-full bg-white ring-1 ring-black/15">
                     <button
                       type="button"
                       aria-label={`Remove one ${line.name}`}
@@ -227,11 +227,11 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
                             : undefined
                         )
                       }
-                      className="flex h-7 w-7 items-center justify-center rounded-full text-[#092328] hover:bg-[#8BBB92]/20 cursor-pointer"
+                      className="flex h-7 w-7 items-center justify-center rounded-full text-[#111613] hover:bg-[#EBF5EF] cursor-pointer"
                     >
                       <Minus className="h-3 w-3" />
                     </button>
-                    <span className="min-w-[18px] text-center text-xs font-bold text-[#092328]">
+                    <span className="min-w-[18px] text-center text-xs font-bold text-[#111613]">
                       {line.qty}
                     </span>
                     <button
@@ -246,12 +246,12 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
                             : undefined
                         )
                       }
-                      className="flex h-7 w-7 items-center justify-center rounded-full text-[#092328] hover:bg-[#8BBB92]/20 cursor-pointer"
+                      className="flex h-7 w-7 items-center justify-center rounded-full text-[#111613] hover:bg-[#EBF5EF] cursor-pointer"
                     >
                       <Plus className="h-3 w-3" />
                     </button>
                   </div>
-                  <span className="min-w-[74px] text-right text-xs font-bold text-[#092328]">
+                  <span className="min-w-[74px] text-right text-xs font-bold text-[#111613]">
                     {formatLKR(line.lineTotal)}
                   </span>
                 </div>
@@ -262,12 +262,12 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
       )}
 
       {/* Booking Form */}
-      <div className="space-y-3 border-t border-[#092328]/12 pt-4">
+      <div className="space-y-3 border-t border-black/10 pt-4">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
           <div>
             <label
               htmlFor="cgh-name"
-              className="block text-xs font-semibold text-[#092328]"
+              className="block text-xs font-semibold text-[#111613]"
             >
               {t.booking.nameLabel} *
             </label>
@@ -277,13 +277,13 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
               placeholder={t.booking.namePlaceholder}
-              className="mt-1 min-h-[42px] w-full rounded-xl border border-[#092328]/20 bg-white px-3 text-sm text-[#092328] focus:border-[#12544F] focus:outline-none focus:ring-2 focus:ring-[#2A835F]/20"
+              className="mt-1 min-h-[42px] w-full rounded-xl border border-black/15 bg-white px-3 text-sm text-[#111613] focus:border-[#0A5C36] focus:outline-none focus:ring-2 focus:ring-[#0A5C36]/20"
             />
           </div>
           <div>
             <label
               htmlFor="cgh-phone"
-              className="block text-xs font-semibold text-[#092328]"
+              className="block text-xs font-semibold text-[#111613]"
             >
               {t.booking.phoneLabel}
             </label>
@@ -293,7 +293,7 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder={t.booking.phonePlaceholder}
-              className="mt-1 min-h-[42px] w-full rounded-xl border border-[#092328]/20 bg-white px-3 text-sm text-[#092328] focus:border-[#12544F] focus:outline-none focus:ring-2 focus:ring-[#2A835F]/20"
+              className="mt-1 min-h-[42px] w-full rounded-xl border border-black/15 bg-white px-3 text-sm text-[#111613] focus:border-[#0A5C36] focus:outline-none focus:ring-2 focus:ring-[#0A5C36]/20"
             />
           </div>
         </div>
@@ -302,7 +302,7 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
           <div>
             <label
               htmlFor="cgh-pickup"
-              className="block text-xs font-semibold text-[#092328]"
+              className="block text-xs font-semibold text-[#111613]"
             >
               {t.booking.pickupLabel}
             </label>
@@ -312,13 +312,13 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
               min={todayISO}
               value={pickupDate}
               onChange={(e) => setPickupDate(e.target.value)}
-              className="mt-1 min-h-[42px] w-full rounded-xl border border-[#092328]/20 bg-white px-2.5 text-xs font-medium text-[#092328] focus:border-[#12544F] focus:outline-none focus:ring-2 focus:ring-[#2A835F]/20"
+              className="mt-1 min-h-[42px] w-full rounded-xl border border-black/15 bg-white px-2.5 text-xs font-medium text-[#111613] focus:border-[#0A5C36] focus:outline-none focus:ring-2 focus:ring-[#0A5C36]/20"
             />
           </div>
           <div>
             <label
               htmlFor="cgh-return"
-              className="block text-xs font-semibold text-[#092328]"
+              className="block text-xs font-semibold text-[#111613]"
             >
               {t.booking.returnLabel}
             </label>
@@ -328,15 +328,15 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
               min={pickupDate}
               value={returnDate}
               onChange={(e) => setReturnDate(e.target.value)}
-              className="mt-1 min-h-[42px] w-full rounded-xl border border-[#092328]/20 bg-white px-2.5 text-xs font-medium text-[#092328] focus:border-[#12544F] focus:outline-none focus:ring-2 focus:ring-[#2A835F]/20"
+              className="mt-1 min-h-[42px] w-full rounded-xl border border-black/15 bg-white px-2.5 text-xs font-medium text-[#111613] focus:border-[#0A5C36] focus:outline-none focus:ring-2 focus:ring-[#0A5C36]/20"
             />
           </div>
         </div>
 
         {/* Days Stepper */}
-        <div className="flex items-center justify-between rounded-xl bg-[#f6f9f7] px-3.5 py-2">
+        <div className="flex items-center justify-between rounded-xl bg-[#F7FAF8] px-3.5 py-2">
           <div>
-            <span className="text-xs font-semibold text-[#092328]">
+            <span className="text-xs font-semibold text-[#111613]">
               {t.booking.daysLabel}
             </span>
             <span className="block text-[11px] text-black/55">
@@ -350,18 +350,18 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
               type="button"
               aria-label="Decrease rental days"
               onClick={() => setCalendarDays(pricing.calendarDays - 1)}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#092328] ring-1 ring-[#092328]/15 hover:bg-[#8BBB92]/20 cursor-pointer"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#111613] ring-1 ring-black/15 hover:bg-[#EBF5EF] cursor-pointer"
             >
               <Minus className="h-3.5 w-3.5" />
             </button>
-            <span className="min-w-[26px] text-center text-sm font-bold text-[#092328]">
+            <span className="min-w-[26px] text-center text-sm font-bold text-[#111613]">
               {pricing.calendarDays}
             </span>
             <button
               type="button"
               aria-label="Increase rental days"
               onClick={() => setCalendarDays(pricing.calendarDays + 1)}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#092328] ring-1 ring-[#092328]/15 hover:bg-[#8BBB92]/20 cursor-pointer"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#111613] ring-1 ring-black/15 hover:bg-[#EBF5EF] cursor-pointer"
             >
               <Plus className="h-3.5 w-3.5" />
             </button>
@@ -369,15 +369,15 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
         </div>
 
         {/* Evening Pickup */}
-        <label className="flex cursor-pointer items-start gap-2.5 rounded-xl border border-[#092328]/15 bg-white p-3 hover:bg-[#f6f9f7]">
+        <label className="flex cursor-pointer items-start gap-2.5 rounded-xl border border-black/12 bg-white p-3 hover:bg-[#F7FAF8]">
           <input
             type="checkbox"
             checked={eveningPickup}
             onChange={(e) => setEveningPickup(e.target.checked)}
-            className="mt-0.5 h-4 w-4 rounded accent-[#12544F]"
+            className="mt-0.5 h-4 w-4 rounded accent-[#0A5C36]"
           />
           <span className="text-xs leading-snug text-black/75">
-            <strong className="block font-semibold text-[#092328]">
+            <strong className="block font-semibold text-[#111613]">
               {t.booking.eveningPickupLabel}
             </strong>
             <span className="text-[11px] text-black/55">
@@ -390,7 +390,7 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
         <div>
           <label
             htmlFor="cgh-notes"
-            className="block text-xs font-semibold text-[#092328]"
+            className="block text-xs font-semibold text-[#111613]"
           >
             {t.booking.notesLabel}
           </label>
@@ -400,20 +400,20 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             placeholder={t.booking.notesPlaceholder}
-            className="mt-1 w-full rounded-xl border border-[#092328]/20 bg-white px-3 py-2 text-xs text-[#092328] focus:border-[#12544F] focus:outline-none focus:ring-2 focus:ring-[#2A835F]/20"
+            className="mt-1 w-full rounded-xl border border-black/15 bg-white px-3 py-2 text-xs text-[#111613] focus:border-[#0A5C36] focus:outline-none focus:ring-2 focus:ring-[#0A5C36]/20"
           />
         </div>
       </div>
 
       {/* Price Summary — White selected price */}
-      <div className="rounded-2xl bg-[#092328] p-4 text-white">
+      <div className="rounded-2xl bg-[#111613] p-4 text-white">
         <div className="flex items-center justify-between text-xs text-white/75">
           <span>{t.booking.subtotalLabel}</span>
           <span>{formatLKR(pricing.subtotal)}</span>
         </div>
 
         {pricing.packageDiscount > 0 && (
-          <div className="mt-1.5 flex items-center justify-between text-xs font-semibold text-[#8BBB92]">
+          <div className="mt-1.5 flex items-center justify-between text-xs font-semibold text-[#D1E7DA]">
             <span>{t.booking.packageDiscountLabel}</span>
             <span>− {formatLKR(pricing.packageDiscount)}</span>
           </div>
@@ -433,7 +433,7 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
           <motion.div
             initial={{ scale: 0.92, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="mt-2 inline-block rounded-full bg-[#2A835F]/40 px-2.5 py-0.5 text-[11px] font-bold text-white"
+            className="mt-2 inline-block rounded-full bg-[#0A5C36] px-2.5 py-0.5 text-[11px] font-bold text-white"
           >
             {t.booking.youSaveLabel}: {formatLKR(pricing.youSave)}
           </motion.div>
@@ -452,7 +452,7 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
               {t.booking.depositValue}
             </span>
           </div>
-          <p className="pt-1 text-[#8BBB92]">{t.booking.returnBeforeNote}</p>
+          <p className="pt-1 text-[#D1E7DA]">{t.booking.returnBeforeNote}</p>
         </div>
       </div>
 
@@ -472,9 +472,9 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
       )}
 
       {/* Exact Sinhala Notice */}
-      <div className="rounded-xl border-l-4 border-[#12544F] bg-[#f6f9f7] p-3 text-[11px] leading-relaxed text-[#092328]">
+      <div className="rounded-xl border-l-4 border-[#0A5C36] bg-[#F7FAF8] p-3 text-[11px] leading-relaxed text-[#111613]">
         <p>{t.booking.sinhalaNotice}</p>
-        <p className="mt-1 font-bold text-[#12544F]">
+        <p className="mt-1 font-bold text-[#0A5C36]">
           {t.booking.sinhalaCallNotice}
         </p>
       </div>
@@ -485,7 +485,7 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
           type="button"
           whileTap={{ scale: 0.97 }}
           onClick={handleSendWhatsApp}
-          className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-[#12544F] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#2A835F] cursor-pointer"
+          className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-[#0A5C36] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#0D7043] cursor-pointer"
         >
           <MessageCircle className="h-4 w-4" />
           <span>{t.booking.sendWhatsAppBtn}</span>
@@ -495,12 +495,12 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
           <button
             type="button"
             onClick={handleCopyText}
-            className="flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl border border-[#092328]/15 bg-white px-3 py-2 text-xs font-semibold text-[#092328] hover:bg-[#f6f9f7] cursor-pointer"
+            className="flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl border border-black/15 bg-white px-3 py-2 text-xs font-semibold text-[#111613] hover:bg-[#F7FAF8] cursor-pointer"
           >
             {copied ? (
               <>
-                <Check className="h-3.5 w-3.5 text-[#2A835F]" />
-                <span className="text-[#2A835F]">{t.booking.copiedBtn}</span>
+                <Check className="h-3.5 w-3.5 text-[#0A5C36]" />
+                <span className="text-[#0A5C36]">{t.booking.copiedBtn}</span>
               </>
             ) : (
               <>
@@ -513,7 +513,7 @@ export function BookingPanel({ onCloseDrawer }: BookingPanelProps) {
           <button
             type="button"
             onClick={handleOpenInvoice}
-            className="flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl border border-[#092328]/15 bg-white px-3 py-2 text-xs font-semibold text-[#092328] hover:bg-[#f6f9f7] cursor-pointer"
+            className="flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl border border-black/15 bg-white px-3 py-2 text-xs font-semibold text-[#111613] hover:bg-[#F7FAF8] cursor-pointer"
           >
             <FileText className="h-3.5 w-3.5" />
             <span>{t.booking.invoiceBtn}</span>

@@ -16,7 +16,7 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px",
-          background: "linear-gradient(135deg, #092328 0%, #12544F 60%, #2A835F 100%)",
+          background: "linear-gradient(135deg, #111613 0%, #0A5C36 75%, #0D7043 100%)",
           color: "#ffffff",
         }}
       >
@@ -25,7 +25,7 @@ export default function OpenGraphImage() {
             display: "flex",
             alignItems: "center",
             fontSize: "24px",
-            color: "#8BBB92",
+            color: "#D1E7DA",
             fontWeight: 600,
           }}
         >
@@ -36,7 +36,7 @@ export default function OpenGraphImage() {
           <div style={{ fontSize: "68px", fontWeight: 800, lineHeight: 1.08 }}>
             Camping Gear Hub — Galle
           </div>
-          <div style={{ fontSize: "32px", color: "#8BBB92" }}>
+          <div style={{ fontSize: "32px", color: "#D1E7DA" }}>
             Sleep under the stars. We bring the gear.
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function OpenGraphImage() {
           <span
             style={{
               background: "#ffffff",
-              color: "#092328",
+              color: "#111613",
               padding: "12px 24px",
               borderRadius: "999px",
             }}
@@ -61,11 +61,11 @@ export default function OpenGraphImage() {
           </span>
           <span
             style={{
-              background: "rgba(139, 187, 146, 0.18)",
+              background: "rgba(255, 255, 255, 0.14)",
               color: "#ffffff",
               padding: "12px 24px",
               borderRadius: "999px",
-              border: "1px solid rgba(139, 187, 146, 0.45)",
+              border: "1px solid rgba(255, 255, 255, 0.35)",
             }}
           >
             Extra Days 50% Off · Free Rain Cover & Ground Sheet
