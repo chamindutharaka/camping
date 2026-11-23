@@ -119,7 +119,7 @@ export function GearCatalog() {
           })}
         </div>
 
-        {/* Grid */}
+        {/* Grid — 2 columns on mobile, 3 on xl desktop */}
         {filteredItems.length === 0 ? (
           <div className="mt-12 rounded-3xl bg-[#F7FAF8] p-10 text-center">
             <p className="font-display text-xl font-bold text-[#111613]">
@@ -142,7 +142,7 @@ export function GearCatalog() {
         ) : (
           <motion.div
             layout={!prefersReduced}
-            className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
+            className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-3"
           >
             <AnimatePresence mode="popLayout">
               {filteredItems.map((item) => {
@@ -163,7 +163,7 @@ export function GearCatalog() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.97 }}
                     transition={{ duration: 0.22 }}
-                    className={`flex flex-col rounded-2xl p-5 transition-all duration-200 ${
+                    className={`flex flex-col rounded-2xl p-3.5 transition-all duration-200 sm:p-5 ${
                       qty > 0
                         ? "bg-[#F7FAF8] ring-2 ring-[#0A5C36]"
                         : "bg-white ring-1 ring-black/10 hover:ring-[#0A5C36]/45"
@@ -171,24 +171,24 @@ export function GearCatalog() {
                   >
                     <div className="flex flex-1 flex-col">
                       {(item.includesFreeKit || item.isFlat) && (
-                        <div className="mb-2.5 flex flex-wrap gap-1.5">
+                        <div className="mb-2 flex flex-wrap gap-1">
                           {item.includesFreeKit && (
-                            <span className="inline-block rounded-full bg-[#EBF5EF] px-2.5 py-0.5 text-[11px] font-semibold text-[#0A5C36]">
+                            <span className="inline-block rounded-full bg-[#EBF5EF] px-2 py-0.5 text-[10px] font-semibold leading-tight text-[#0A5C36] sm:px-2.5 sm:text-[11px]">
                               {t.gear.freeKitBadge}
                             </span>
                           )}
                           {item.isFlat && (
-                            <span className="inline-block rounded-full bg-[#111613] px-2.5 py-0.5 text-[11px] font-semibold text-white">
+                            <span className="inline-block rounded-full bg-[#111613] px-2 py-0.5 text-[10px] font-semibold leading-tight text-white sm:px-2.5 sm:text-[11px]">
                               {t.gear.flatBadge}
                             </span>
                           )}
                         </div>
                       )}
 
-                      <h3 className="font-display text-lg font-bold text-[#111613]">
+                      <h3 className="font-display text-sm font-bold leading-snug text-[#111613] sm:text-lg">
                         {language === "si" ? item.nameSi : item.name}
                       </h3>
-                      <p className="mt-1 text-xs leading-relaxed text-black/60">
+                      <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-black/60 sm:line-clamp-none sm:text-xs">
                         {language === "si"
                           ? item.descriptionSi
                           : item.descriptionEn}
@@ -196,7 +196,7 @@ export function GearCatalog() {
 
                       {/* Variant Chips (Gas Stove) */}
                       {item.variants && (
-                        <div className="mt-3 flex flex-wrap gap-1.5">
+                        <div className="mt-2.5 flex flex-wrap gap-1.5 sm:mt-3">
                           {item.variants.map((variant) => {
                             const selected = variant.id === activeVariantId;
                             return (
@@ -209,7 +209,7 @@ export function GearCatalog() {
                                     [item.id]: variant.id,
                                   }))
                                 }
-                                className={`min-h-[34px] rounded-full px-3 py-1 text-xs font-semibold transition cursor-pointer ${
+                                className={`min-h-[30px] rounded-full px-2.5 py-1 text-[11px] font-semibold transition cursor-pointer sm:min-h-[34px] sm:px-3 sm:text-xs ${
                                   selected
                                     ? "bg-[#111613] text-white"
                                     : "bg-[#F7FAF8] text-[#111613] ring-1 ring-black/12 hover:bg-[#EBF5EF]"
@@ -224,24 +224,24 @@ export function GearCatalog() {
                         </div>
                       )}
 
-                      <div className="mt-auto mt-4 flex items-end justify-between gap-3 border-t border-black/8 pt-4">
+                      <div className="mt-auto mt-3 flex flex-col justify-between gap-2.5 border-t border-black/8 pt-3 sm:mt-4 sm:flex-row sm:items-end sm:gap-3 sm:pt-4">
                         <div>
-                          <div className="flex items-baseline gap-1">
-                            <span className="font-display text-xl font-bold text-[#111613]">
+                          <div className="flex flex-wrap items-baseline gap-1">
+                            <span className="font-display text-base font-bold text-[#111613] sm:text-xl">
                               {formatLKR(unitPrice)}
                             </span>
                             {!item.isFlat && (
-                              <span className="text-xs font-medium text-black/50">
+                              <span className="text-[11px] font-medium text-black/50 sm:text-xs">
                                 {t.gear.perFirstDay}
                               </span>
                             )}
                           </div>
                           {item.isFlat ? (
-                            <p className="text-[11px] font-medium text-[#0A5C36]">
+                            <p className="text-[10px] font-medium text-[#0A5C36] sm:text-[11px]">
                               {t.gear.flatNote}
                             </p>
                           ) : (
-                            <p className="text-xs font-semibold text-[#0A5C36]">
+                            <p className="text-[11px] font-semibold text-[#0A5C36] sm:text-xs">
                               {t.gear.extraDayPrefix}
                               {formatLKR(unitPrice * 0.5)}
                               {t.gear.extraDaySuffix}
@@ -257,7 +257,7 @@ export function GearCatalog() {
                             onClick={() =>
                               incrementItem(item.id, activeVariantId)
                             }
-                            className="inline-flex min-h-[42px] items-center gap-1.5 rounded-full bg-[#111613] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#0A5C36] cursor-pointer"
+                            className="inline-flex min-h-[38px] w-full items-center justify-center gap-1.5 rounded-full bg-[#111613] px-3.5 py-1.5 text-xs font-bold text-white transition hover:bg-[#0A5C36] cursor-pointer sm:min-h-[42px] sm:w-auto sm:px-4 sm:py-2"
                           >
                             <Plus className="h-3.5 w-3.5" />
                             <span>{t.gear.addBtn}</span>
@@ -267,7 +267,7 @@ export function GearCatalog() {
                             initial={{ scale: 0.92 }}
                             animate={{ scale: 1 }}
                             transition={{ type: "spring", stiffness: 450, damping: 25 }}
-                            className="flex items-center gap-1 rounded-full bg-[#0A5C36] p-1 text-white"
+                            className="flex w-full items-center justify-between gap-1 rounded-full bg-[#0A5C36] p-1 text-white sm:w-auto sm:justify-start"
                           >
                             <button
                               type="button"
