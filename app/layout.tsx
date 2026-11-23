@@ -68,7 +68,7 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${dmSans.variable} ${notoSinhala.variable}`}
     >
-      <body className="antialiased selection:bg-[#8EB69B]/45 selection:text-[#020D0D]">
+      <body className="antialiased selection:bg-[#8BBB92]/35 selection:text-[#092328]">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

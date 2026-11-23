@@ -16,9 +16,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px",
-          background:
-            "linear-gradient(135deg, #020D0D 0%, #051F20 35%, #0B2B26 70%, #163832 100%)",
-          color: "#F4FBF5",
+          background: "linear-gradient(135deg, #092328 0%, #12544F 60%, #2A835F 100%)",
+          color: "#ffffff",
         }}
       >
         <div
@@ -26,7 +25,7 @@ export default function OpenGraphImage() {
             display: "flex",
             alignItems: "center",
             fontSize: "24px",
-            color: "#8EB69B",
+            color: "#8BBB92",
             fontWeight: 600,
           }}
         >
@@ -34,10 +33,10 @@ export default function OpenGraphImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-          <div style={{ fontSize: "68px", fontWeight: 800, lineHeight: 1.08, color: "#F4FBF5" }}>
+          <div style={{ fontSize: "68px", fontWeight: 800, lineHeight: 1.08 }}>
             Camping Gear Hub — Galle
           </div>
-          <div style={{ fontSize: "32px", color: "#8EB69B" }}>
+          <div style={{ fontSize: "32px", color: "#8BBB92" }}>
             Sleep under the stars. We bring the gear.
           </div>
         </div>
@@ -52,8 +51,8 @@ export default function OpenGraphImage() {
         >
           <span
             style={{
-              background: "#DAF1DE",
-              color: "#020D0D",
+              background: "#ffffff",
+              color: "#092328",
               padding: "12px 24px",
               borderRadius: "999px",
             }}
@@ -62,11 +61,11 @@ export default function OpenGraphImage() {
           </span>
           <span
             style={{
-              background: "rgba(35, 83, 71, 0.55)",
-              color: "#DAF1DE",
+              background: "rgba(139, 187, 146, 0.18)",
+              color: "#ffffff",
               padding: "12px 24px",
               borderRadius: "999px",
-              border: "1px solid rgba(142, 182, 155, 0.45)",
+              border: "1px solid rgba(139, 187, 146, 0.45)",
             }}
           >
             Extra Days 50% Off · Free Rain Cover & Ground Sheet
