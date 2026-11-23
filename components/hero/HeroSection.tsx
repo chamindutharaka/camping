@@ -37,7 +37,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="no-print relative flex min-h-[90vh] flex-col justify-between overflow-hidden bg-[#051F20] text-white"
+      className="no-print relative flex min-h-[90vh] flex-col justify-between overflow-hidden bg-[#020D0D] text-[#F4FBF5]"
     >
       {/* Parallax Background */}
       <motion.div
@@ -55,8 +55,8 @@ export function HeroSection() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#051F20]/82 via-[#0B2B26]/55 to-[#051F20]/96" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#051F20]/88 via-[#051F20]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020D0D]/80 via-[#051F20]/50 to-[#020D0D]/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020D0D]/88 via-[#051F20]/40 to-transparent" />
       </motion.div>
 
       {/* Main Content */}
@@ -75,11 +75,11 @@ export function HeroSection() {
                   {t.hero.eyebrow}
                 </p>
 
-                <h1 className="font-display mt-4 text-[clamp(2.4rem,5.5vw,4.5rem)] font-bold leading-[1.06] tracking-tight text-white">
+                <h1 className="font-display mt-4 text-[clamp(2.4rem,5.5vw,4.5rem)] font-bold leading-[1.06] tracking-tight text-[#F4FBF5]">
                   {t.hero.title}
                 </h1>
 
-                <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#DAF1DE]/88 sm:text-lg">
+                <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#DAF1DE]/90 sm:text-lg">
                   {t.hero.subtitle}
                 </p>
 
@@ -87,14 +87,14 @@ export function HeroSection() {
                   <motion.a
                     whileTap={{ scale: 0.97 }}
                     href="#gear"
-                    className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#DAF1DE] px-7 py-3 text-sm font-bold text-[#051F20] transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8EB69B]"
+                    className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#DAF1DE] px-7 py-3 text-sm font-bold text-[#020D0D] transition hover:bg-[#F4FBF5] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8EB69B]"
                   >
                     {t.hero.ctaGear}
                   </motion.a>
                   <motion.a
                     whileTap={{ scale: 0.97 }}
                     href="#packages"
-                    className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-[#8EB69B]/45 bg-[#0B2B26]/65 px-7 py-3 text-sm font-semibold text-[#DAF1DE] backdrop-blur-md transition hover:bg-[#163832] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DAF1DE]"
+                    className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-[#8EB69B]/45 bg-[#0B2B26]/70 px-7 py-3 text-sm font-semibold text-[#F4FBF5] backdrop-blur-md transition hover:bg-[#163832] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DAF1DE]"
                   >
                     {t.hero.ctaPackages}
                   </motion.a>
@@ -110,7 +110,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-4"
           >
-            <div className="rounded-3xl border border-[#8EB69B]/35 bg-[#0B2B26]/85 p-6 backdrop-blur-xl">
+            <div className="rounded-3xl border border-[#8EB69B]/35 bg-[#051F20]/88 p-6 backdrop-blur-xl">
               <div className="flex items-center justify-between gap-2">
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8EB69B]">
                   {t.hero.exampleLabel}
@@ -123,14 +123,14 @@ export function HeroSection() {
                 {t.hero.exampleTitle}
               </p>
               <div className="mt-1 flex items-baseline gap-2.5">
-                <span className="font-display text-3xl font-bold text-white">
+                <span className="font-display text-3xl font-bold text-[#F4FBF5]">
                   {t.hero.examplePrice}
                 </span>
                 <span className="text-sm text-[#8EB69B]/65 line-through">
                   LKR 2,700
                 </span>
               </div>
-              <p className="mt-3 border-t border-white/10 pt-3 text-xs text-[#8EB69B]">
+              <p className="mt-3 border-t border-[#8EB69B]/20 pt-3 text-xs text-[#8EB69B]">
                 {t.trust.freeKit}
               </p>
             </div>
@@ -139,7 +139,7 @@ export function HeroSection() {
       </div>
 
       {/* Clean Text-Only Trust Strip */}
-      <div className="relative z-10 border-t border-[#8EB69B]/20 bg-[#051F20]/90 backdrop-blur-md">
+      <div className="relative z-10 border-t border-[#8EB69B]/20 bg-[#020D0D]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-4 py-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
           <div className="grid w-full grid-cols-2 gap-x-6 gap-y-2 sm:flex sm:flex-wrap sm:items-center sm:gap-8">
             {trustItems.map((label) => (
@@ -154,7 +154,7 @@ export function HeroSection() {
           </div>
           <a
             href="#packages"
-            className="hidden shrink-0 text-xs font-medium text-[#8EB69B] transition-colors hover:text-[#DAF1DE] lg:inline-block"
+            className="hidden shrink-0 text-xs font-medium text-[#8EB69B] transition-colors hover:text-[#F4FBF5] lg:inline-block"
           >
             {t.hero.scrollHint}
           </a>

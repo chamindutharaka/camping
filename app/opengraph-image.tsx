@@ -17,8 +17,8 @@ export default function OpenGraphImage() {
           justifyContent: "space-between",
           padding: "64px",
           background:
-            "linear-gradient(135deg, #051F20 0%, #0B2B26 45%, #163832 80%, #235347 100%)",
-          color: "#DAF1DE",
+            "linear-gradient(135deg, #020D0D 0%, #051F20 35%, #0B2B26 70%, #163832 100%)",
+          color: "#F4FBF5",
         }}
       >
         <div
@@ -34,7 +34,7 @@ export default function OpenGraphImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-          <div style={{ fontSize: "68px", fontWeight: 800, lineHeight: 1.08, color: "#ffffff" }}>
+          <div style={{ fontSize: "68px", fontWeight: 800, lineHeight: 1.08, color: "#F4FBF5" }}>
             Camping Gear Hub — Galle
           </div>
           <div style={{ fontSize: "32px", color: "#8EB69B" }}>
@@ -53,7 +53,7 @@ export default function OpenGraphImage() {
           <span
             style={{
               background: "#DAF1DE",
-              color: "#051F20",
+              color: "#020D0D",
               padding: "12px 24px",
               borderRadius: "999px",
             }}
@@ -62,7 +62,7 @@ export default function OpenGraphImage() {
           </span>
           <span
             style={{
-              background: "rgba(142, 182, 155, 0.18)",
+              background: "rgba(35, 83, 71, 0.55)",
               color: "#DAF1DE",
               padding: "12px 24px",
               borderRadius: "999px",

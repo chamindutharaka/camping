@@ -46,38 +46,38 @@ export function GearCatalog() {
   };
 
   return (
-    <section id="gear" className="no-print bg-white py-16 sm:py-24">
+    <section id="gear" className="no-print bg-[#F4FBF5] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#235347]">
               {t.gear.eyebrow}
             </p>
-            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#051F20] sm:text-4xl">
+            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#020D0D] sm:text-4xl">
               {t.gear.title}
             </h2>
-            <p className="mt-2.5 text-base text-[#163832]/75">
+            <p className="mt-2.5 text-base text-[#163832]/80">
               {t.gear.subtitle}
             </p>
           </div>
 
           {/* Search Input */}
           <div className="relative w-full md:w-80">
-            <Search className="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-[#163832]/50" />
+            <Search className="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-[#163832]/55" />
             <input
               type="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t.gear.searchPlaceholder}
               aria-label={t.gear.searchPlaceholder}
-              className="min-h-[46px] w-full rounded-full border border-[#051F20]/15 bg-[#DAF1DE]/30 py-2.5 pr-10 pl-11 text-sm text-[#051F20] placeholder:text-[#163832]/50 focus:border-[#163832] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#235347]/20"
+              className="min-h-[46px] w-full rounded-full border border-[#051F20]/15 bg-[#DAF1DE]/55 py-2.5 pr-10 pl-11 text-sm text-[#020D0D] placeholder:text-[#163832]/55 focus:border-[#163832] focus:bg-[#F4FBF5] focus:outline-none focus:ring-2 focus:ring-[#235347]/20"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
                 aria-label="Clear search"
-                className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full p-1 text-[#163832]/60 hover:bg-[#DAF1DE] hover:text-[#051F20] cursor-pointer"
+                className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full p-1 text-[#163832]/65 hover:bg-[#DAF1DE] hover:text-[#020D0D] cursor-pointer"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
@@ -102,8 +102,8 @@ export function GearCatalog() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`relative min-h-[44px] rounded-full px-4 py-2 text-sm font-semibold transition-colors cursor-pointer ${
                   active
-                    ? "text-[#DAF1DE]"
-                    : "bg-[#DAF1DE]/45 text-[#051F20]/85 hover:bg-[#DAF1DE]"
+                    ? "text-[#F4FBF5]"
+                    : "bg-[#DAF1DE]/70 text-[#051F20] hover:bg-[#DAF1DE]"
                 }`}
               >
                 {active && (
@@ -123,11 +123,11 @@ export function GearCatalog() {
 
         {/* Grid */}
         {filteredItems.length === 0 ? (
-          <div className="mt-12 rounded-3xl bg-[#DAF1DE]/35 p-10 text-center">
-            <p className="font-display text-xl font-bold text-[#051F20]">
+          <div className="mt-12 rounded-3xl bg-[#DAF1DE]/65 p-10 text-center">
+            <p className="font-display text-xl font-bold text-[#020D0D]">
               {t.gear.emptyTitle}
             </p>
-            <p className="mt-1.5 text-sm text-[#163832]/75">
+            <p className="mt-1.5 text-sm text-[#163832]/80">
               {t.gear.emptySubtitle}
             </p>
             <button
@@ -136,7 +136,7 @@ export function GearCatalog() {
                 setSearchQuery("");
                 setActiveCategory("all");
               }}
-              className="mt-4 inline-flex min-h-[44px] items-center rounded-full bg-[#051F20] px-5 py-2 text-sm font-semibold text-[#DAF1DE] hover:bg-[#163832] cursor-pointer"
+              className="mt-4 inline-flex min-h-[44px] items-center rounded-full bg-[#051F20] px-5 py-2 text-sm font-semibold text-[#F4FBF5] hover:bg-[#163832] cursor-pointer"
             >
               {t.gear.clearSearch}
             </button>
@@ -167,15 +167,15 @@ export function GearCatalog() {
                     transition={{ duration: 0.22 }}
                     className={`flex flex-col rounded-2xl p-5 transition-all duration-200 ${
                       qty > 0
-                        ? "bg-[#DAF1DE]/45 ring-2 ring-[#235347]"
-                        : "bg-white ring-1 ring-[#051F20]/12 hover:ring-[#235347]/50"
+                        ? "bg-[#DAF1DE] ring-2 ring-[#235347]"
+                        : "bg-white/75 ring-1 ring-[#051F20]/12 hover:bg-white hover:ring-[#235347]/50"
                     }`}
                   >
                     <div className="flex flex-1 flex-col">
                       {(item.includesFreeKit || item.isFlat) && (
                         <div className="mb-2.5 flex flex-wrap gap-1.5">
                           {item.includesFreeKit && (
-                            <span className="inline-block rounded-full bg-[#DAF1DE] px-2.5 py-0.5 text-[11px] font-semibold text-[#163832]">
+                            <span className="inline-block rounded-full bg-[#DAF1DE] px-2.5 py-0.5 text-[11px] font-semibold text-[#163832] ring-1 ring-[#8EB69B]/50">
                               {t.gear.freeKitBadge}
                             </span>
                           )}
@@ -187,10 +187,10 @@ export function GearCatalog() {
                         </div>
                       )}
 
-                      <h3 className="font-display text-lg font-bold text-[#051F20]">
+                      <h3 className="font-display text-lg font-bold text-[#020D0D]">
                         {language === "si" ? item.nameSi : item.name}
                       </h3>
-                      <p className="mt-1 text-xs leading-relaxed text-[#163832]/75">
+                      <p className="mt-1 text-xs leading-relaxed text-[#163832]/80">
                         {language === "si"
                           ? item.descriptionSi
                           : item.descriptionEn}
@@ -213,8 +213,8 @@ export function GearCatalog() {
                                 }
                                 className={`min-h-[34px] rounded-full px-3 py-1 text-xs font-semibold transition cursor-pointer ${
                                   selected
-                                    ? "bg-[#051F20] text-[#DAF1DE]"
-                                    : "bg-[#DAF1DE]/40 text-[#051F20] ring-1 ring-[#051F20]/15 hover:bg-[#DAF1DE]"
+                                    ? "bg-[#051F20] text-[#F4FBF5]"
+                                    : "bg-[#DAF1DE]/60 text-[#051F20] ring-1 ring-[#051F20]/15 hover:bg-[#DAF1DE]"
                                 }`}
                               >
                                 {language === "si"
@@ -226,14 +226,14 @@ export function GearCatalog() {
                         </div>
                       )}
 
-                      <div className="mt-auto flex items-end justify-between gap-3 border-t border-[#051F20]/10 pt-4 mt-4">
+                      <div className="mt-auto mt-4 flex items-end justify-between gap-3 border-t border-[#051F20]/10 pt-4">
                         <div>
                           <div className="flex items-baseline gap-1">
-                            <span className="font-display text-xl font-bold text-[#051F20]">
+                            <span className="font-display text-xl font-bold text-[#020D0D]">
                               {formatLKR(unitPrice)}
                             </span>
                             {!item.isFlat && (
-                              <span className="text-xs font-medium text-[#163832]/65">
+                              <span className="text-xs font-medium text-[#163832]/70">
                                 {t.gear.perFirstDay}
                               </span>
                             )}
@@ -269,7 +269,7 @@ export function GearCatalog() {
                             initial={{ scale: 0.92 }}
                             animate={{ scale: 1 }}
                             transition={{ type: "spring", stiffness: 450, damping: 25 }}
-                            className="flex items-center gap-1 rounded-full bg-[#163832] p-1 text-white"
+                            className="flex items-center gap-1 rounded-full bg-[#163832] p-1 text-[#F4FBF5]"
                           >
                             <button
                               type="button"

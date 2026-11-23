@@ -4,25 +4,27 @@
   --font-display: var(--font-fraunces), "Noto Sans Sinhala", Georgia, serif;
   --font-sans: var(--font-dm-sans), "Noto Sans Sinhala", system-ui, sans-serif;
 
+  --color-pine-black: #020D0D;
   --color-pine-950: #051F20;
   --color-pine-900: #0B2B26;
   --color-pine-800: #163832;
   --color-pine-700: #235347;
   --color-sage-400: #8EB69B;
   --color-mint-100: #DAF1DE;
+  --color-mint-50: #F4FBF5;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #ffffff;
-    color: #051F20;
+    background-color: #F4FBF5;
+    color: #020D0D;
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #ffffff;
-    color: #051F20;
+    background-color: #F4FBF5;
+    color: #020D0D;
     overflow-x: hidden;
   }
 }
@@ -39,7 +41,7 @@
 
   body {
     background: #ffffff !important;
-    color: #000000 !important;
+    color: #020D0D !important;
   }
 
   .no-print {

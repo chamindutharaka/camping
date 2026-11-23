@@ -33,8 +33,8 @@ export function Header() {
     <header
       className={`no-print fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-white/92 py-2.5 shadow-xs backdrop-blur-md border-b border-[#051F20]/10"
-          : "bg-gradient-to-b from-[#051F20]/85 to-transparent py-4"
+          ? "bg-[#F4FBF5]/94 py-2.5 shadow-xs backdrop-blur-md border-b border-[#051F20]/10"
+          : "bg-gradient-to-b from-[#020D0D]/85 to-transparent py-4"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -49,7 +49,7 @@ export function Header() {
           <div>
             <span
               className={`font-display text-base font-bold tracking-tight sm:text-lg ${
-                scrolled ? "text-[#051F20]" : "text-white"
+                scrolled ? "text-[#020D0D]" : "text-[#F4FBF5]"
               }`}
             >
               {t.brand.shortName}
@@ -92,8 +92,8 @@ export function Header() {
             href="tel:0702156828"
             className={`hidden items-center rounded-full px-3.5 py-2 text-xs font-semibold transition-colors lg:inline-flex ${
               scrolled
-                ? "bg-[#DAF1DE]/70 text-[#051F20] hover:bg-[#DAF1DE]"
-                : "bg-white/12 text-white hover:bg-white/20 backdrop-blur-sm"
+                ? "bg-[#DAF1DE] text-[#051F20] hover:bg-[#8EB69B]/40"
+                : "bg-[#0B2B26]/70 text-[#F4FBF5] hover:bg-[#163832] backdrop-blur-sm"
             }`}
           >
             {t.brand.phoneDisplay}
@@ -104,8 +104,8 @@ export function Header() {
             aria-label="Language switch"
             className={`flex items-center rounded-full p-0.5 text-xs font-semibold ${
               scrolled
-                ? "bg-[#DAF1DE]/70 text-[#051F20]"
-                : "bg-white/15 text-white backdrop-blur-sm"
+                ? "bg-[#DAF1DE] text-[#051F20]"
+                : "bg-[#0B2B26]/70 text-[#F4FBF5] backdrop-blur-sm"
             }`}
           >
             <button
@@ -113,7 +113,7 @@ export function Header() {
               onClick={() => setLanguage("en")}
               className={`min-h-[34px] rounded-full px-2.5 transition-colors cursor-pointer ${
                 language === "en"
-                  ? "bg-[#051F20] text-[#DAF1DE]"
+                  ? "bg-[#051F20] text-[#F4FBF5]"
                   : "hover:opacity-80"
               }`}
             >
@@ -124,7 +124,7 @@ export function Header() {
               onClick={() => setLanguage("si")}
               className={`min-h-[34px] rounded-full px-2.5 transition-colors cursor-pointer ${
                 language === "si"
-                  ? "bg-[#051F20] text-[#DAF1DE]"
+                  ? "bg-[#051F20] text-[#F4FBF5]"
                   : "hover:opacity-80"
               }`}
             >
@@ -136,7 +136,7 @@ export function Header() {
             type="button"
             whileTap={{ scale: 0.96 }}
             onClick={() => setDrawerOpen(true)}
-            className="relative inline-flex min-h-[40px] items-center gap-2 rounded-full bg-[#163832] px-3.5 py-2 text-xs font-semibold text-white transition hover:bg-[#235347] cursor-pointer lg:hidden"
+            className="relative inline-flex min-h-[40px] items-center gap-2 rounded-full bg-[#163832] px-3.5 py-2 text-xs font-semibold text-[#F4FBF5] transition hover:bg-[#235347] cursor-pointer lg:hidden"
             aria-label={t.nav.cart}
           >
             <ShoppingBag className="h-4 w-4" />
@@ -146,7 +146,7 @@ export function Header() {
                 key={totalCount}
                 initial={{ scale: 0.7 }}
                 animate={{ scale: 1 }}
-                className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#DAF1DE] px-1.5 text-[11px] font-bold text-[#051F20]"
+                className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#DAF1DE] px-1.5 text-[11px] font-bold text-[#020D0D]"
               >
                 {totalCount}
               </motion.span>

@@ -7,8 +7,8 @@ const U = "https://images.unsplash.com/photo-";
 const Q = "?auto=format&fit=crop&w=900&q=80";
 
 export const HERO_IMAGE: ImageAsset = {
-  src: `${U}1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1920&q=85`,
-  alt: "Glowing camping tent pitched under a golden-hour twilight sky",
+  src: "/hero_image.jpg",
+  alt: "Hillside camping tents overlooking a misty golden-hour valley at sunrise",
 };
 
 export const PACKAGE_IMAGES: Record<string, ImageAsset> = {

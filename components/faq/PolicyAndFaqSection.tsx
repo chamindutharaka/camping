@@ -15,16 +15,16 @@ export function PolicyAndFaqSection() {
   return (
     <>
       {/* Policy & Confirmation */}
-      <section id="policy" className="no-print bg-[#DAF1DE]/35 py-16 sm:py-24">
+      <section id="policy" className="no-print bg-[#DAF1DE] py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#235347]">
               {t.policy.eyebrow}
             </p>
-            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#051F20] sm:text-4xl">
+            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#020D0D] sm:text-4xl">
               {t.policy.title}
             </h2>
-            <p className="mt-3 text-base text-[#163832]/80">{t.policy.subtitle}</p>
+            <p className="mt-3 text-base text-[#163832]">{t.policy.subtitle}</p>
           </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -35,12 +35,12 @@ export function PolicyAndFaqSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className="rounded-3xl bg-white p-6 ring-1 ring-[#051F20]/10"
+                className="rounded-3xl bg-[#F4FBF5] p-6 ring-1 ring-[#051F20]/10"
               >
-                <h3 className="font-display text-lg font-bold text-[#051F20]">
+                <h3 className="font-display text-lg font-bold text-[#020D0D]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#163832]/80">
+                <p className="mt-2 text-sm leading-relaxed text-[#163832]/85">
                   {item.body}
                 </p>
               </motion.div>
@@ -50,13 +50,13 @@ export function PolicyAndFaqSection() {
       </section>
 
       {/* FAQ Accordion */}
-      <section id="faq" className="no-print bg-white py-16 sm:py-24">
+      <section id="faq" className="no-print bg-[#F4FBF5] py-16 sm:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#235347]">
               {t.faq.eyebrow}
             </p>
-            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#051F20] sm:text-4xl">
+            <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#020D0D] sm:text-4xl">
               {t.faq.title}
             </h2>
           </div>
@@ -67,13 +67,13 @@ export function PolicyAndFaqSection() {
               return (
                 <div
                   key={faq.q}
-                  className="overflow-hidden rounded-2xl bg-[#DAF1DE]/35 ring-1 ring-[#051F20]/10"
+                  className="overflow-hidden rounded-2xl bg-[#DAF1DE]/65 ring-1 ring-[#051F20]/10"
                 >
                   <button
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="flex min-h-[56px] w-full items-center justify-between gap-4 px-5 py-4 text-left font-display text-base font-bold text-[#051F20] cursor-pointer"
+                    className="flex min-h-[56px] w-full items-center justify-between gap-4 px-5 py-4 text-left font-display text-base font-bold text-[#020D0D] cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
@@ -91,7 +91,7 @@ export function PolicyAndFaqSection() {
                         transition={{ duration: 0.22 }}
                         className="overflow-hidden"
                       >
-                        <p className="px-5 pb-5 text-sm leading-relaxed text-[#163832]/85">
+                        <p className="px-5 pb-5 text-sm leading-relaxed text-[#163832]/90">
                           {faq.a}
                         </p>
                       </motion.div>

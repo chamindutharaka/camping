@@ -72,14 +72,14 @@ export function InvoiceModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setInvoiceOpen(false)}
-            className="no-print fixed inset-0 bg-black/70 backdrop-blur-xs"
+            className="no-print fixed inset-0 bg-[#020D0D]/75 backdrop-blur-xs"
           />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
-            className="print-only-container relative z-10 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:p-8"
+            className="print-only-container relative z-10 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-[#F4FBF5] p-6 shadow-2xl sm:p-8"
           >
             {/* Modal Controls (hidden on print) */}
             <div className="no-print mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-[#051F20]/12 pb-4">
@@ -97,7 +97,7 @@ export function InvoiceModal() {
                 <button
                   type="button"
                   onClick={() => window.print()}
-                  className="inline-flex min-h-[40px] items-center gap-2 rounded-full bg-[#051F20] px-4 py-2 text-xs font-bold text-[#DAF1DE] hover:bg-[#163832] cursor-pointer"
+                  className="inline-flex min-h-[40px] items-center gap-2 rounded-full bg-[#051F20] px-4 py-2 text-xs font-bold text-[#F4FBF5] hover:bg-[#163832] cursor-pointer"
                 >
                   <Printer className="h-4 w-4" />
                   <span>{t.invoice.printBtn}</span>
@@ -106,7 +106,7 @@ export function InvoiceModal() {
                   type="button"
                   onClick={() => setInvoiceOpen(false)}
                   aria-label={t.invoice.closeBtn}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#DAF1DE]/50 text-[#051F20] hover:bg-[#DAF1DE] cursor-pointer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#DAF1DE] text-[#051F20] hover:bg-[#8EB69B]/50 cursor-pointer"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -114,12 +114,12 @@ export function InvoiceModal() {
             </div>
 
             {/* Printable Invoice Sheet */}
-            <div className="space-y-6 text-[#051F20]">
+            <div className="space-y-6 text-[#020D0D]">
               <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[#051F20]/12 pb-5">
                 <div className="flex items-center gap-3">
                   <BrandLogo size={52} />
                   <div>
-                    <h2 className="font-display text-2xl font-bold text-[#051F20]">
+                    <h2 className="font-display text-2xl font-bold text-[#020D0D]">
                       {t.brand.name}
                     </h2>
                     <p className="text-xs text-[#163832]/75">{t.brand.location}</p>
@@ -133,36 +133,36 @@ export function InvoiceModal() {
                   <p className="text-xs font-bold uppercase tracking-wider text-[#163832]/55">
                     {t.invoice.title}
                   </p>
-                  <p className="mt-1 font-mono text-sm font-bold text-[#051F20]">
+                  <p className="mt-1 font-mono text-sm font-bold text-[#020D0D]">
                     {invoiceNo}
                   </p>
-                  <p className="text-xs text-[#163832]/65">
+                  <p className="text-xs text-[#163832]/70">
                     {t.invoice.issueDate}: {todayISO}
                   </p>
                 </div>
               </div>
 
-              <div className="grid gap-4 rounded-2xl bg-[#DAF1DE]/40 p-4 sm:grid-cols-2">
+              <div className="grid gap-4 rounded-2xl bg-[#DAF1DE]/65 p-4 sm:grid-cols-2">
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-[#163832]/65">
                     {t.invoice.billedTo}
                   </p>
-                  <p className="mt-1 text-sm font-bold text-[#051F20]">
+                  <p className="mt-1 text-sm font-bold text-[#020D0D]">
                     {customerName.trim() || "Walk-in / Customer"}
                   </p>
                   {phone.trim() && (
-                    <p className="text-xs text-[#163832]/80">{phone.trim()}</p>
+                    <p className="text-xs text-[#163832]/85">{phone.trim()}</p>
                   )}
                 </div>
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-[#163832]/65">
                     {t.invoice.rentalPeriod}
                   </p>
-                  <p className="mt-1 text-xs text-[#051F20]/85">
+                  <p className="mt-1 text-xs text-[#051F20]">
                     <strong>{t.invoice.pickup}:</strong> {pickupDate}
                     {eveningPickup ? " (Evening pickup)" : ""}
                   </p>
-                  <p className="text-xs text-[#051F20]/85">
+                  <p className="text-xs text-[#051F20]">
                     <strong>{t.invoice.returnText}:</strong> {returnDate}
                   </p>
                   <p className="text-xs font-semibold text-[#235347]">
@@ -195,7 +195,7 @@ export function InvoiceModal() {
                   <tbody className="divide-y divide-[#051F20]/8">
                     {pricing.lines.map((line) => (
                       <tr key={line.key}>
-                        <td className="py-2.5 font-medium text-[#051F20]">
+                        <td className="py-2.5 font-medium text-[#020D0D]">
                           {line.name}
                           {line.variantLabel ? ` (${line.variantLabel})` : ""}
                           {line.includesFreeKit && (
@@ -213,14 +213,14 @@ export function InvoiceModal() {
                         <td className="py-2.5 text-right">
                           {line.isFlat ? t.invoice.flatTier : `${line.multiplier}×`}
                         </td>
-                        <td className="py-2.5 text-right font-bold text-[#051F20]">
+                        <td className="py-2.5 text-right font-bold text-[#020D0D]">
                           {formatLKR(line.lineTotal)}
                         </td>
                       </tr>
                     ))}
 
                     {pricing.packageDiscount > 0 && pricing.activePackageName && (
-                      <tr className="bg-[#DAF1DE]/55 text-[#163832]">
+                      <tr className="bg-[#DAF1DE]/70 text-[#163832]">
                         <td colSpan={4} className="py-2.5 font-semibold">
                           {t.invoice.packageDiscount} ({pricing.activePackageName})
                         </td>
@@ -237,7 +237,7 @@ export function InvoiceModal() {
               <div className="flex flex-col items-end space-y-1.5 border-t border-[#051F20]/15 pt-4 text-sm">
                 <div className="flex w-full max-w-xs justify-between">
                   <span className="text-[#163832]/75">{t.invoice.subtotal}</span>
-                  <span className="font-bold text-[#051F20]">
+                  <span className="font-bold text-[#020D0D]">
                     {formatLKR(pricing.grandTotal)}
                   </span>
                 </div>
@@ -247,15 +247,15 @@ export function InvoiceModal() {
                     <span className="font-semibold">− LKR 500</span>
                   </div>
                 )}
-                <div className="flex w-full max-w-xs justify-between border-t border-[#051F20]/15 pt-2 text-base font-extrabold text-[#051F20]">
+                <div className="flex w-full max-w-xs justify-between border-t border-[#051F20]/15 pt-2 text-base font-extrabold text-[#020D0D]">
                   <span>{t.invoice.balanceDue}</span>
                   <span>{formatLKR(balanceDue)}</span>
                 </div>
               </div>
 
               {/* Policy Footer */}
-              <div className="rounded-xl border border-[#051F20]/12 bg-[#DAF1DE]/35 p-4 text-[11px] leading-relaxed text-[#163832]">
-                <p className="font-bold text-[#051F20]">
+              <div className="rounded-xl border border-[#051F20]/12 bg-[#DAF1DE]/55 p-4 text-[11px] leading-relaxed text-[#163832]">
+                <p className="font-bold text-[#020D0D]">
                   {t.invoice.policyHeading}
                 </p>
                 <p className="mt-1">
@@ -263,7 +263,7 @@ export function InvoiceModal() {
                   LKR 500 advance reserves items; orders without advance are subject to day-of
                   availability. Please return all items before 12:00 PM on the return date.
                 </p>
-                <p className="mt-1.5 font-medium text-[#051F20]">
+                <p className="mt-1.5 font-medium text-[#020D0D]">
                   {t.booking.sinhalaNotice}
                 </p>
               </div>

@@ -17,14 +17,14 @@ export function Footer() {
 
   return (
     <>
-      <footer className="no-print bg-[#051F20] pt-14 pb-28 text-white lg:pb-14">
+      <footer className="no-print bg-[#020D0D] pt-14 pb-28 text-[#F4FBF5] lg:pb-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 md:grid-cols-3">
             <div>
               <div className="flex items-center gap-3">
                 <BrandLogo size={44} className="ring-1 ring-[#8EB69B]/40" />
                 <div>
-                  <h3 className="font-display text-xl font-bold text-white">
+                  <h3 className="font-display text-xl font-bold text-[#F4FBF5]">
                     {t.brand.name}
                   </h3>
                   <p className="text-xs text-[#8EB69B]">{t.footer.tagline}</p>
@@ -41,7 +41,7 @@ export function Footer() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#8EB69B] hover:text-[#DAF1DE] hover:underline"
+                className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#8EB69B] hover:text-[#F4FBF5] hover:underline"
               >
                 <span>{t.footer.mapLinkText}</span>
                 <ExternalLink className="h-3.5 w-3.5" />
@@ -55,7 +55,7 @@ export function Footer() {
                 </p>
                 <a
                   href="tel:0702156828"
-                  className="mt-1.5 inline-flex items-center gap-2 text-base font-bold text-white hover:text-[#8EB69B]"
+                  className="mt-1.5 inline-flex items-center gap-2 text-base font-bold text-[#F4FBF5] hover:text-[#8EB69B]"
                 >
                   <Phone className="h-4 w-4 text-[#8EB69B]" />
                   <span>{t.brand.phoneDisplay}</span>
