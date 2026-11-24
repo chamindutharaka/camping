@@ -13,16 +13,16 @@ export const HERO_IMAGE: ImageAsset = {
 
 export const PACKAGE_IMAGES: Record<string, ImageAsset> = {
   "couple-pack": {
-    src: `${U}1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=1200&q=80`,
-    alt: "Cozy 2-person campsite tent with warm lantern light at dusk",
+    src: `${U}1496080174650-637e3f22fa03?auto=format&fit=crop&w=1200&q=80`,
+    alt: "Glowing 2-person camping tent in a tranquil forest at twilight",
   },
   "4-person-pack": {
-    src: `${U}1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1200&q=80`,
-    alt: "Friends gathered around a campfire beside a spacious camping tent",
+    src: `${U}1646912951442-7a2bc5e8cd06?auto=format&fit=crop&w=1200&q=80`,
+    alt: "Friends gathered around a warm campfire beside glowing tents",
   },
   "6-person-pack": {
-    src: `${U}1537905569824-f89f14cceb68?auto=format&fit=crop&w=1200&q=80`,
-    alt: "Group campsite setup with large tent and cooking gear in nature",
+    src: `${U}1736606355698-5efdb410fe93?auto=format&fit=crop&w=1200&q=80`,
+    alt: "Multiple camping tents pitched along a scenic coastal landscape at sunset",
   },
 };
 

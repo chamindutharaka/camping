@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { CAMPING_PACKAGES } from "@/data/packages";
@@ -15,6 +15,7 @@ export function PackagesSection() {
   const prefersReduced = useReducedMotion();
   const sliderRef = useRef<HTMLDivElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [autoScrollPaused, setAutoScrollPaused] = useState(false);
 
   const language = useBookingStore((s) => s.language);
   const activePackageId = useBookingStore((s) => s.activePackageId);
@@ -24,6 +25,7 @@ export function PackagesSection() {
   const t = DICTIONARY[language];
 
   const handleSelect = (pkgId: string) => {
+    setAutoScrollPaused(true);
     selectPackage(pkgId);
     if (typeof window !== "undefined" && window.innerWidth < 1024) {
       setDrawerOpen(true);
@@ -63,6 +65,16 @@ export function PackagesSection() {
     setActiveSlide(clamped);
   };
 
+  useEffect(() => {
+    if (prefersReduced || autoScrollPaused) return;
+    const timer = setInterval(() => {
+      if (typeof window === "undefined" || window.innerWidth >= 768) return;
+      const nextIdx = (activeSlide + 1) % CAMPING_PACKAGES.length;
+      scrollToSlide(nextIdx);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [activeSlide, prefersReduced, autoScrollPaused]);
+
   return (
     <section
       id="packages"
@@ -91,6 +103,9 @@ export function PackagesSection() {
         <div
           ref={sliderRef}
           onScroll={handleSliderScroll}
+          onTouchStart={() => setAutoScrollPaused(true)}
+          onMouseEnter={() => setAutoScrollPaused(true)}
+          onMouseLeave={() => setAutoScrollPaused(false)}
           className="-mx-4 mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:mt-10 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0"
         >
           {CAMPING_PACKAGES.map((pkg, idx) => {

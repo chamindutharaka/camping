@@ -22,10 +22,10 @@ export const HERO_VIDEOS: HeroVideoAsset[] = [
     labelSi: "වෙරළබඩ Sunset Camp",
   },
   {
-    id: "mountain-sunrise",
+    id: "riverside-lights",
     src: "/videos/hero-3.mp4",
     poster: "/hero_image.jpg",
-    labelEn: "Misty Mountain Sunrise",
-    labelSi: "කඳුකර හිමිදිරිය",
+    labelEn: "Campfire & String Lights",
+    labelSi: "ගිනිමැලය සහ ආලෝකය",
   },
 ];
