@@ -8,24 +8,24 @@ export interface HeroVideoAsset {
 
 export const HERO_VIDEOS: HeroVideoAsset[] = [
   {
-    id: "forest-camp",
+    id: "jungle-camp",
     src: "/videos/hero-1.mp4",
     poster: "/hero_image.jpg",
-    labelEn: "Tropical Forest Camp",
+    labelEn: "Jungle Stream Camp",
     labelSi: "වනාන්තර Camp",
   },
   {
-    id: "river-camp",
+    id: "coastal-sunset",
     src: "/videos/hero-2.mp4",
     poster: "/hero_image.jpg",
-    labelEn: "Riverside Evening",
-    labelSi: "ගං ඉවුරේ රැයක්",
+    labelEn: "Coastal Sunset Camp",
+    labelSi: "වෙරළබඩ Sunset Camp",
   },
   {
-    id: "bonfire-night",
+    id: "mountain-sunrise",
     src: "/videos/hero-3.mp4",
     poster: "/hero_image.jpg",
-    labelEn: "Mountain Bonfire",
-    labelSi: "ගිනිමැලය සහ කඳු",
+    labelEn: "Misty Mountain Sunrise",
+    labelSi: "කඳුකර හිමිදිරිය",
   },
 ];

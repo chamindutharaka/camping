@@ -192,10 +192,10 @@ export const DICTIONARY: Record<Language, Dictionary> = {
       cart: "Booking",
     },
     hero: {
-      eyebrow: "Pinnaduwa, Galle · Open Daily",
+      eyebrow: "Pinnaduwa, Galle",
       title: "Sleep under the stars. We bring the gear.",
       subtitle:
-        "Tents starting from LKR 900 with FREE Rain Cover & Ground Sheet. 1st day full price, every extra day 50% off — only we offer tents at this price.",
+        "Tents starting from LKR 900 with FREE Rain Cover & Ground Sheet. 1st day full price, every extra day 50% off. Only we offer tents at this price.",
       ctaGear: "Browse Gear",
       ctaPackages: "Quick Start Packages",
       exampleLabel: "Rate Guide",
@@ -206,8 +206,8 @@ export const DICTIONARY: Record<Language, Dictionary> = {
     },
     trust: {
       freeKit: "Free rain cover & ground sheet",
-      halfPrice: "50% off every extra day",
-      gallePickup: "Easy Galle pick-up",
+      halfPrice: "50% off extra day",
+      gallePickup: "Easy pickup",
       whatsappSupport: "Direct WhatsApp booking",
     },
     packages: {
@@ -395,7 +395,7 @@ export const DICTIONARY: Record<Language, Dictionary> = {
       mapLinkText: "Open in Google Maps",
       callLabel: "Call / WhatsApp",
       facebookLabel: "Camping Gear Hub on Facebook",
-      rights: "Camping Gear Hub — Galle. All rights reserved.",
+      rights: "Camping Gear Hub - Galle. All rights reserved.",
     },
   },
   si: {
@@ -415,7 +415,7 @@ export const DICTIONARY: Record<Language, Dictionary> = {
       cart: "Booking",
     },
     hero: {
-      eyebrow: "Pinnaduwa, Galle · දිනපතා විවෘතයි",
+      eyebrow: "Pinnaduwa, Galle ·",
       title: "Camping items rent කරන්න හොඳම තැන.",
       subtitle:
         "ඔයාගේ trip එකට යන estimated price එක මේ website එකෙන්ම calculate කරලා බලන්න. Tents LKR 900 සිට — Rain Cover & Ground Sheet FREE. 1st day full price, හැම extra day එකකටම 50% off.",
@@ -430,7 +430,7 @@ export const DICTIONARY: Record<Language, Dictionary> = {
     trust: {
       freeKit: "Rain Cover & Ground Sheet FREE",
       halfPrice: "හැම extra day එකකටම 50% off",
-      gallePickup: "පින්නදූව, ගාල්ලෙන් pick-up",
+      gallePickup: "පින්නදූව, ගාල්ලෙන් pick කරන්න",
       whatsappSupport: "WhatsApp (070 215 6828)",
     },
     packages: {

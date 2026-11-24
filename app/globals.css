@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: var(--font-fraunces), "Noto Sans Sinhala", Georgia, serif;
-  --font-sans: var(--font-dm-sans), "Noto Sans Sinhala", system-ui, sans-serif;
+  --font-display: var(--font-cormorant), "Noto Sans Sinhala", Georgia, serif;
+  --font-sans: var(--font-jakarta), "Noto Sans Sinhala", system-ui, sans-serif;
 
   --color-brand-black: #111613;
   --color-brand-green: #0A5C36;

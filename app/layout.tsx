@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
-import { DM_Sans, Fraunces, Noto_Sans_Sinhala } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Noto_Sans_Sinhala,
+  Plus_Jakarta_Sans,
+} from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jakarta",
   display: "swap",
 });
 
@@ -66,7 +73,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${dmSans.variable} ${notoSinhala.variable}`}
+      className={`${cormorant.variable} ${jakarta.variable} ${notoSinhala.variable}`}
     >
       <body className="antialiased selection:bg-[#0A5C36]/20 selection:text-[#111613]">
         <script
