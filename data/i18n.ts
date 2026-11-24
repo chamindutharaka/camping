@@ -59,6 +59,8 @@ export interface Dictionary {
     extraDaySuffix: string;
     flatNote: string;
     addBtn: string;
+    viewMore: string;
+    viewLess: string;
     emptyTitle: string;
     emptySubtitle: string;
     clearSearch: string;
@@ -237,6 +239,8 @@ export const DICTIONARY: Record<Language, Dictionary> = {
       extraDaySuffix: " / extra day",
       flatNote: "Flat per rental · not multiplied by days",
       addBtn: "Add",
+      viewMore: "View more",
+      viewLess: "Show less",
       emptyTitle: "No equipment matches your search",
       emptySubtitle: "Try clearing your search or switching categories.",
       clearSearch: "Show all gear",
@@ -460,6 +464,8 @@ export const DICTIONARY: Record<Language, Dictionary> = {
       extraDaySuffix: " / extra day",
       flatNote: "Flat fee · දවස් ගණනට වැඩි වෙන්නේ නෑ",
       addBtn: "Add",
+      viewMore: "විස්තර බලන්න",
+      viewLess: "අඩුවෙන්",
       emptyTitle: "ඔයා search කරපු gear එක හම්බවුණේ නෑ",
       emptySubtitle: "වෙන නමකින් search කරන්න නැත්නම් ඔක්කොම බලන්න.",
       clearSearch: "ඔක්කොම items පෙන්වන්න",

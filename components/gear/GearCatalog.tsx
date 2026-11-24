@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Minus, Plus, Search, X } from "lucide-react";
+import { ChevronDown, Minus, Plus, Search, X } from "lucide-react";
 import { CATEGORIES, CategoryFilter, GEAR_ITEMS, GearItem } from "@/data/items";
 import { DICTIONARY } from "@/data/i18n";
 import { formatLKR } from "@/lib/format";
@@ -12,6 +12,7 @@ export function GearCatalog() {
   const prefersReduced = useReducedMotion();
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({});
   const [selectedVariants, setSelectedVariants] = useState<
     Record<string, string>
   >({
@@ -24,6 +25,10 @@ export function GearCatalog() {
   const decrementItem = useBookingStore((s) => s.decrementItem);
 
   const t = DICTIONARY[language];
+
+  const toggleExpand = (id: string) => {
+    setExpandedIds((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const filteredItems = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
@@ -154,6 +159,7 @@ export function GearCatalog() {
                 );
                 const unitPrice = activeVariant?.price ?? item.price;
                 const qty = getQty(item, activeVariantId);
+                const isExpanded = Boolean(expandedIds[item.id]);
 
                 return (
                   <motion.article
@@ -170,33 +176,38 @@ export function GearCatalog() {
                     }`}
                   >
                     <div className="flex flex-1 flex-col">
-                      {(item.includesFreeKit || item.isFlat) && (
-                        <div className="mb-2 flex flex-wrap gap-1">
-                          {item.includesFreeKit && (
-                            <span className="inline-block rounded-full bg-[#EBF5EF] px-2 py-0.5 text-[10px] font-semibold leading-tight text-[#0A5C36] sm:px-2.5 sm:text-[11px]">
-                              {t.gear.freeKitBadge}
-                            </span>
-                          )}
-                          {item.isFlat && (
-                            <span className="inline-block rounded-full bg-[#111613] px-2 py-0.5 text-[10px] font-semibold leading-tight text-white sm:px-2.5 sm:text-[11px]">
-                              {t.gear.flatBadge}
+                      <h3 className="font-display text-base font-bold leading-snug text-[#111613] sm:text-lg">
+                        {language === "si" ? item.nameSi : item.name}
+                      </h3>
+
+                      {/* Compact Price */}
+                      <div className="mt-1.5">
+                        <div className="flex flex-wrap items-baseline gap-1">
+                          <span className="font-display text-base font-bold text-[#111613] sm:text-xl">
+                            {formatLKR(unitPrice)}
+                          </span>
+                          {!item.isFlat && (
+                            <span className="text-[11px] font-medium text-black/50 sm:text-xs">
+                              {t.gear.perFirstDay}
                             </span>
                           )}
                         </div>
-                      )}
-
-                      <h3 className="font-display text-sm font-bold leading-snug text-[#111613] sm:text-lg">
-                        {language === "si" ? item.nameSi : item.name}
-                      </h3>
-                      <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-black/60 sm:line-clamp-none sm:text-xs">
-                        {language === "si"
-                          ? item.descriptionSi
-                          : item.descriptionEn}
-                      </p>
+                        {item.isFlat ? (
+                          <p className="text-[10px] font-medium text-[#0A5C36] sm:text-[11px]">
+                            {t.gear.flatBadge}
+                          </p>
+                        ) : (
+                          <p className="text-[11px] font-semibold text-[#0A5C36] sm:text-xs">
+                            {t.gear.extraDayPrefix}
+                            {formatLKR(unitPrice * 0.5)}
+                            {t.gear.extraDaySuffix}
+                          </p>
+                        )}
+                      </div>
 
                       {/* Variant Chips (Gas Stove) */}
                       {item.variants && (
-                        <div className="mt-2.5 flex flex-wrap gap-1.5 sm:mt-3">
+                        <div className="mt-2.5 flex flex-wrap gap-1.5">
                           {item.variants.map((variant) => {
                             const selected = variant.id === activeVariantId;
                             return (
@@ -224,32 +235,55 @@ export function GearCatalog() {
                         </div>
                       )}
 
-                      <div className="mt-auto mt-3 flex flex-col justify-between gap-2.5 border-t border-black/8 pt-3 sm:mt-4 sm:flex-row sm:items-end sm:gap-3 sm:pt-4">
-                        <div>
-                          <div className="flex flex-wrap items-baseline gap-1">
-                            <span className="font-display text-base font-bold text-[#111613] sm:text-xl">
-                              {formatLKR(unitPrice)}
-                            </span>
-                            {!item.isFlat && (
-                              <span className="text-[11px] font-medium text-black/50 sm:text-xs">
-                                {t.gear.perFirstDay}
-                              </span>
-                            )}
-                          </div>
-                          {item.isFlat ? (
-                            <p className="text-[10px] font-medium text-[#0A5C36] sm:text-[11px]">
-                              {t.gear.flatNote}
-                            </p>
-                          ) : (
-                            <p className="text-[11px] font-semibold text-[#0A5C36] sm:text-xs">
-                              {t.gear.extraDayPrefix}
-                              {formatLKR(unitPrice * 0.5)}
-                              {t.gear.extraDaySuffix}
-                            </p>
-                          )}
-                        </div>
+                      {/* Expandable Details */}
+                      <AnimatePresence initial={false}>
+                        {isExpanded && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="mt-2.5 space-y-1.5 border-t border-black/8 pt-2.5">
+                              {item.includesFreeKit && (
+                                <span className="inline-block rounded-full bg-[#EBF5EF] px-2 py-0.5 text-[10px] font-semibold text-[#0A5C36] sm:text-[11px]">
+                                  {t.gear.freeKitBadge}
+                                </span>
+                              )}
+                              {item.isFlat && (
+                                <p className="text-[11px] font-medium text-[#0A5C36]">
+                                  {t.gear.flatNote}
+                                </p>
+                              )}
+                              <p className="text-[11px] leading-relaxed text-black/65 sm:text-xs">
+                                {language === "si"
+                                  ? item.descriptionSi
+                                  : item.descriptionEn}
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
 
-                        {/* Add / Stepper */}
+                      {/* Actions: View More + Add/Stepper */}
+                      <div className="mt-auto mt-3 flex flex-col gap-2 pt-3">
+                        <button
+                          type="button"
+                          onClick={() => toggleExpand(item.id)}
+                          aria-expanded={isExpanded}
+                          className="inline-flex w-fit items-center gap-1 text-[11px] font-semibold text-[#0A5C36] hover:underline cursor-pointer sm:text-xs"
+                        >
+                          <span>
+                            {isExpanded ? t.gear.viewLess : t.gear.viewMore}
+                          </span>
+                          <ChevronDown
+                            className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                              isExpanded ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+
                         {qty === 0 ? (
                           <motion.button
                             type="button"
@@ -257,7 +291,7 @@ export function GearCatalog() {
                             onClick={() =>
                               incrementItem(item.id, activeVariantId)
                             }
-                            className="inline-flex min-h-[38px] w-full items-center justify-center gap-1.5 rounded-full bg-[#111613] px-3.5 py-1.5 text-xs font-bold text-white transition hover:bg-[#0A5C36] cursor-pointer sm:min-h-[42px] sm:w-auto sm:px-4 sm:py-2"
+                            className="inline-flex min-h-[38px] w-full items-center justify-center gap-1.5 rounded-full bg-[#111613] px-3.5 py-1.5 text-xs font-bold text-white transition hover:bg-[#0A5C36] cursor-pointer sm:min-h-[42px]"
                           >
                             <Plus className="h-3.5 w-3.5" />
                             <span>{t.gear.addBtn}</span>
@@ -267,7 +301,7 @@ export function GearCatalog() {
                             initial={{ scale: 0.92 }}
                             animate={{ scale: 1 }}
                             transition={{ type: "spring", stiffness: 450, damping: 25 }}
-                            className="flex w-full items-center justify-between gap-1 rounded-full bg-[#0A5C36] p-1 text-white sm:w-auto sm:justify-start"
+                            className="flex w-full items-center justify-between gap-1 rounded-full bg-[#0A5C36] p-1 text-white"
                           >
                             <button
                               type="button"
