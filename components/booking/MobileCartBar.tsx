@@ -12,6 +12,7 @@ import { BookingPanel } from "@/components/booking/BookingPanel";
 export function MobileCartBar() {
   const prefersReduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const language = useBookingStore((s) => s.language);
   const entries = useBookingStore((s) => s.entries);
@@ -24,6 +25,12 @@ export function MobileCartBar() {
 
   useEffect(() => {
     setMounted(true);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 180);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -49,42 +56,68 @@ export function MobileCartBar() {
   );
 
   const totalCount = pricing.lines.reduce((s, l) => s + l.qty, 0);
+  const showFloatingButton = mounted && !isDrawerOpen && (scrolled || totalCount > 0);
 
   return (
     <>
-      {/* Sticky Bottom Bar on Mobile — White selected price area */}
-      <div className="no-print fixed inset-x-0 bottom-0 z-40 p-3 lg:hidden">
-        <button
-          type="button"
-          onClick={() => setDrawerOpen(true)}
-          className="flex min-h-[56px] w-full items-center justify-between rounded-2xl bg-[#111613]/95 px-4 py-3 text-white shadow-2xl shadow-black/40 backdrop-blur-md ring-1 ring-white/15 cursor-pointer"
-        >
-          <div className="flex items-center gap-3">
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-[#0A5C36] text-white">
-              <ShoppingBag className="h-5 w-5" />
-              {totalCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-white px-1 text-[11px] font-extrabold text-[#111613]">
-                  {totalCount}
-                </span>
-              )}
-            </div>
-            <div className="text-left">
-              <p className="text-xs text-white/80">
-                {totalCount} {t.booking.itemsSelected}
-              </p>
-              <AnimatedNumber
-                value={pricing.grandTotal}
-                className="font-display text-lg font-bold text-white"
-              />
-            </div>
-          </div>
+      {/* Scroll-triggered Floating Side Booking Button on Mobile */}
+      <AnimatePresence>
+        {showFloatingButton && (
+          <motion.div
+            initial={
+              prefersReduced
+                ? { opacity: 0 }
+                : { opacity: 0, x: 48, scale: 0.9 }
+            }
+            animate={
+              prefersReduced ? { opacity: 1 } : { opacity: 1, x: 0, scale: 1 }
+            }
+            exit={
+              prefersReduced
+                ? { opacity: 0 }
+                : { opacity: 0, x: 48, scale: 0.9 }
+            }
+            transition={{ type: "spring", stiffness: 380, damping: 28 }}
+            className="no-print fixed right-4 bottom-20 z-40 lg:hidden"
+          >
+            <button
+              type="button"
+              onClick={() => setDrawerOpen(true)}
+              aria-label={t.nav.cart}
+              className="relative flex items-center gap-2.5 rounded-full bg-[#0A5C36] py-2.5 pr-4 pl-3 text-white shadow-xl shadow-black/35 ring-1 ring-[#4EA879]/60 transition-colors hover:bg-[#0D7043] active:scale-95 cursor-pointer"
+            >
+              <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#111613]/40 text-white">
+                <ShoppingBag className="h-4.5 w-4.5" />
+                {totalCount > 0 && (
+                  <>
+                    <span className="absolute -top-1 -right-1 h-4.5 min-w-[18px] animate-ping rounded-full bg-[#4EA879] opacity-60" />
+                    <span className="absolute -top-1 -right-1 flex h-4.5 min-w-[18px] items-center justify-center rounded-full bg-white px-1 text-[10px] font-extrabold text-[#111613] shadow">
+                      {totalCount}
+                    </span>
+                  </>
+                )}
+              </div>
 
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#0A5C36] px-4 py-2 text-xs font-bold text-white">
-            <span>{t.nav.cart}</span>
-            <ChevronUp className="h-4 w-4" />
-          </span>
-        </button>
-      </div>
+              {totalCount > 0 ? (
+                <div className="flex flex-col text-left leading-tight">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#EBF5EF]">
+                    {t.nav.cart}
+                  </span>
+                  <AnimatedNumber
+                    value={pricing.grandTotal}
+                    className="font-display text-sm font-bold text-white"
+                  />
+                </div>
+              ) : (
+                <div className="flex items-center gap-1 text-xs font-bold tracking-wide text-white">
+                  <span>{t.nav.cart}</span>
+                  <ChevronUp className="h-4 w-4 text-[#EBF5EF]" />
+                </div>
+              )}
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Bottom Sheet Drawer */}
       <AnimatePresence>

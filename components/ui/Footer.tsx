@@ -17,7 +17,7 @@ export function Footer() {
 
   return (
     <>
-      <footer className="no-print bg-[#111613] pt-14 pb-28 text-white lg:pb-14">
+      <footer className="no-print bg-[#111613] pt-14 pb-16 text-white lg:pb-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 md:grid-cols-3">
             <div>
@@ -81,13 +81,13 @@ export function Footer() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button — positioned above MobileCartBar on mobile */}
+      {/* Floating WhatsApp Button — positioned below MobileCartBar pill on mobile */}
       <a
         href={WHATSAPP_DIRECT_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="no-print fixed right-4 bottom-24 z-30 flex h-13 w-13 items-center justify-center rounded-full bg-[#0A5C36] text-white shadow-xl shadow-black/30 ring-1 ring-[#4EA879]/40 transition-transform hover:scale-105 hover:bg-[#0D7043] focus:outline-none focus-visible:ring-2 focus-visible:ring-white lg:right-6 lg:bottom-6"
+        className="no-print fixed right-4 bottom-4 z-30 flex h-13 w-13 items-center justify-center rounded-full bg-[#0A5C36] text-white shadow-xl shadow-black/30 ring-1 ring-[#4EA879]/40 transition-transform hover:scale-105 hover:bg-[#0D7043] focus:outline-none focus-visible:ring-2 focus-visible:ring-white lg:right-6 lg:bottom-6"
       >
         <MessageCircle className="h-6 w-6" />
       </a>
