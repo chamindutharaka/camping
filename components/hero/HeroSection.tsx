@@ -9,13 +9,12 @@ import {
   AnimatePresence,
 } from "motion/react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { HERO_IMAGE } from "@/data/images";
-import { HERO_VIDEOS } from "@/data/videos";
+import { HERO_IMAGES } from "@/data/images";
 import { DICTIONARY } from "@/data/i18n";
 import { useBookingStore } from "@/lib/store";
 import { SmartImage } from "@/components/ui/SmartImage";
 
-const SLIDE_DURATION_MS = 8000;
+const SLIDE_DURATION_MS = 6500;
 
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
@@ -24,8 +23,6 @@ export function HeroSection() {
   const t = DICTIONARY[language];
 
   const [activeSlide, setActiveSlide] = useState(0);
-  const [videoFailed, setVideoFailed] = useState<Record<string, boolean>>({});
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -36,30 +33,19 @@ export function HeroSection() {
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.02, 1.08]);
 
   const goToSlide = useCallback((idx: number) => {
-    const total = HERO_VIDEOS.length;
+    const total = HERO_IMAGES.length;
     setActiveSlide(((idx % total) + total) % total);
   }, []);
 
   useEffect(() => {
     if (prefersReduced) return;
     const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % HERO_VIDEOS.length);
+      setActiveSlide((prev) => (prev + 1) % HERO_IMAGES.length);
     }, SLIDE_DURATION_MS);
     return () => clearInterval(timer);
   }, [prefersReduced, activeSlide]);
 
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid || prefersReduced) return;
-    vid.play().catch(() => {
-      // Autoplay may be blocked on low-power mode; poster remains visible
-    });
-  }, [activeSlide, prefersReduced]);
-
-  const currentVideo = HERO_VIDEOS[activeSlide];
-  const showFallbackImage =
-    Boolean(prefersReduced) || Boolean(videoFailed[currentVideo.id]);
-
+  const currentImage = HERO_IMAGES[activeSlide];
   const padNum = (n: number) => String(n).padStart(2, "0");
 
   return (
@@ -67,49 +53,30 @@ export function HeroSection() {
       ref={containerRef}
       className="no-print relative flex h-[100svh] min-h-[660px] flex-col justify-end overflow-hidden bg-[#111613] text-white"
     >
-      {/* Full-Screen Parallax Video / Fallback Image Slider */}
+      {/* Full-Screen Parallax Camping Image Slider */}
       <motion.div
         style={prefersReduced ? undefined : { y: bgY, scale: bgScale }}
         className="pointer-events-none absolute inset-0"
       >
         <AnimatePresence mode="sync">
           <motion.div
-            key={currentVideo.id}
-            initial={prefersReduced ? { opacity: 0 } : { opacity: 0, scale: 1.04 }}
+            key={currentImage.src}
+            initial={
+              prefersReduced ? { opacity: 0 } : { opacity: 0, scale: 1.06 }
+            }
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0"
           >
-            {showFallbackImage ? (
-              <SmartImage
-                src={HERO_IMAGE.src}
-                alt={HERO_IMAGE.alt}
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover object-center"
-              />
-            ) : (
-              <video
-                ref={videoRef}
-                key={currentVideo.src}
-                src={currentVideo.src}
-                poster={currentVideo.poster}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                onError={() =>
-                  setVideoFailed((prev) => ({
-                    ...prev,
-                    [currentVideo.id]: true,
-                  }))
-                }
-                className="h-full w-full object-cover object-center"
-              />
-            )}
+            <SmartImage
+              src={currentImage.src}
+              alt={currentImage.alt}
+              fill
+              priority={activeSlide === 0}
+              sizes="100vw"
+              className="object-cover object-center"
+            />
           </motion.div>
         </AnimatePresence>
 
@@ -188,7 +155,7 @@ export function HeroSection() {
               </motion.span>
             </AnimatePresence>
             <span className="text-xs font-medium tracking-wider text-white/55">
-              / {padNum(HERO_VIDEOS.length)}
+              / {padNum(HERO_IMAGES.length)}
             </span>
           </div>
 
@@ -204,7 +171,7 @@ export function HeroSection() {
             <button
               type="button"
               onClick={() => goToSlide(activeSlide - 1)}
-              aria-label="Previous hero video"
+              aria-label="Previous hero image"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/5 text-white backdrop-blur-sm transition hover:border-white/80 hover:bg-white/15 cursor-pointer"
             >
               <ChevronLeft className="h-4 w-4" />
@@ -212,7 +179,7 @@ export function HeroSection() {
             <button
               type="button"
               onClick={() => goToSlide(activeSlide + 1)}
-              aria-label="Next hero video"
+              aria-label="Next hero image"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/5 text-white backdrop-blur-sm transition hover:border-white/80 hover:bg-white/15 cursor-pointer"
             >
               <ChevronRight className="h-4 w-4" />
@@ -221,7 +188,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom Edge Animated Video Timeline Progress Bar */}
+      {/* Bottom Edge Animated Slide Timeline Progress Bar */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 bottom-0 z-20 h-[3px] bg-white/15"

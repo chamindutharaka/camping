@@ -5,11 +5,24 @@ export interface ImageAsset {
 
 const U = "https://images.unsplash.com/photo-";
 const Q = "?auto=format&fit=crop&w=900&q=80";
+const H = "?auto=format&fit=crop&w=2000&q=85";
 
-export const HERO_IMAGE: ImageAsset = {
-  src: "https://images.unsplash.com/photo-1736606355698-5efdb410fe93?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIyfHx8ZW58MHx8fHx8",
-  alt: "Camping tents pitched along a scenic coastal landscape at sunset",
-};
+export const HERO_IMAGES: ImageAsset[] = [
+  {
+    src: `${U}1736606355698-5efdb410fe93${H}`,
+    alt: "Camping tents pitched along a scenic coastal landscape at sunset",
+  },
+  {
+    src: `${U}1504280390367-361c6d9f38f4${H}`,
+    alt: "Camping tent pitched in the mountains at golden hour",
+  },
+  {
+    src: `${U}1478131143081-80f7f84ca84d${H}`,
+    alt: "Illuminated camping tent under a starry night sky in the woods",
+  },
+];
+
+export const HERO_IMAGE: ImageAsset = HERO_IMAGES[0];
 
 export const PACKAGE_IMAGES: Record<string, ImageAsset> = {
   "couple-pack": {
