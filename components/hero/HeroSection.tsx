@@ -162,10 +162,25 @@ export function HeroSection() {
 
           <a
             href="#packages"
-            className="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/75 transition-colors hover:text-white sm:inline-flex"
+            className="inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/80 transition-colors hover:text-[#4EA879]"
           >
             <span>SCROLL</span>
-            <span className="h-5 w-px bg-white/35" aria-hidden="true" />
+            <span
+              className="relative h-6 w-[2px] overflow-hidden rounded-full bg-[#4EA879]/30"
+              aria-hidden="true"
+            >
+              <motion.span
+                className="absolute inset-x-0 top-0 h-3 w-full rounded-full bg-gradient-to-b from-transparent via-[#4EA879] to-[#8BBB92]"
+                animate={
+                  prefersReduced ? undefined : { y: ["-100%", "220%"] }
+                }
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            </span>
           </a>
 
           <div className="flex items-center gap-2">
