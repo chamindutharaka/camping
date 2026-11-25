@@ -1,4 +1,5 @@
 import { Header } from "@/components/ui/Header";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { HeroSection } from "@/components/hero/HeroSection";
 import { PackagesSection } from "@/components/packages/PackagesSection";
 import { GearCatalog } from "@/components/gear/GearCatalog";
@@ -12,6 +13,7 @@ import { Footer } from "@/components/ui/Footer";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-[#111613]">
+      <ScrollProgress />
       <Header />
 
       <main>
