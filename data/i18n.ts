@@ -20,6 +20,7 @@ export interface Dictionary {
     eyebrow: string;
     title: string;
     subtitle: string;
+    slides: { eyebrow: string; title: string; subtitle: string }[];
     ctaGear: string;
     ctaPackages: string;
     exampleLabel: string;
@@ -198,6 +199,26 @@ export const DICTIONARY: Record<Language, Dictionary> = {
       title: "Sleep under the stars. We bring the gear.",
       subtitle:
         "Tents starting from LKR 900 with FREE Rain Cover & Ground Sheet. 1st day full price, every extra day 50% off. Only we offer tents at this price.",
+      slides: [
+        {
+          eyebrow: "Pinnaduwa, Galle",
+          title: "Sleep under the stars. We bring the gear.",
+          subtitle:
+            "Tents starting from LKR 900 with FREE Rain Cover & Ground Sheet. 1st day full price, every extra day 50% off.",
+        },
+        {
+          eyebrow: "1st Day Full · Extra Days 50% Off",
+          title: "Camp longer, pay half on extra days.",
+          subtitle:
+            "Pick up in the evening for a next-morning trip and billing starts tomorrow. Only we offer tents at this price.",
+        },
+        {
+          eyebrow: "Tents · BBQ · Cookware & Lights",
+          title: "Built for wild nights around the fire.",
+          subtitle:
+            "From 2-person couple kits to 6-person group setups — clean, tested gear ready in Galle. Reserve with LKR 500 advance.",
+        },
+      ],
       ctaGear: "Browse Gear",
       ctaPackages: "Quick Start Packages",
       exampleLabel: "Rate Guide",
@@ -423,6 +444,26 @@ export const DICTIONARY: Record<Language, Dictionary> = {
       title: "Camping items rent කරන්න හොඳම තැන.",
       subtitle:
         "ඔයාගේ trip එකට යන estimated price එක මේ website එකෙන්ම calculate කරලා බලන්න. Tents LKR 900 සිට — Rain Cover & Ground Sheet FREE. 1st day full price, හැම extra day එකකටම 50% off.",
+      slides: [
+        {
+          eyebrow: "Pinnaduwa, Galle",
+          title: "Camping items rent කරන්න හොඳම තැන.",
+          subtitle:
+            "Tents LKR 900 සිට — Rain Cover & Ground Sheet FREE. ඔයාගේ trip එකට යන estimated price එක මේ website එකෙන්ම බලන්න.",
+        },
+        {
+          eyebrow: "1st Day Full · Extra Days 50% Off",
+          title: "දවස් වැඩි වෙන තරමට ගාණ අඩුයි.",
+          subtitle:
+            "1st day full price, හැම extra day එකකටම 50% off. කලින් දවසේ හවස ගත්තත් බිල හැදෙන්නේ ඊළඟ දවසේ උදේ ඉඳන්.",
+        },
+        {
+          eyebrow: "Tents · BBQ · Cookware & Lights",
+          title: "ගිනි මැලේ ළඟ රෑ ගත කරන්න ඕන හැමදේම.",
+          subtitle:
+            "දෙන්නගෙන් 6 දෙනා දක්වා packages සහ වෙනම gear sets. රු.500 advance එකෙන් පින්නදූව, ගාල්ලෙන් reserve කරගන්න.",
+        },
+      ],
       ctaGear: "Equipment බලන්න",
       ctaPackages: "Quick Start Packages",
       exampleLabel: "Price Example",

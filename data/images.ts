@@ -9,16 +9,16 @@ const H = "?auto=format&fit=crop&w=2000&q=85";
 
 export const HERO_IMAGES: ImageAsset[] = [
   {
-    src: `${U}1736606355698-5efdb410fe93${H}`,
-    alt: "Camping tents pitched along a scenic coastal landscape at sunset",
+    src: `${U}1690230677155-d0051d2f64d1${H}`,
+    alt: "Camping tents pitched on a scenic mountain ridge overlooking a misty lake at sunrise",
   },
   {
     src: `${U}1504280390367-361c6d9f38f4${H}`,
     alt: "Camping tent pitched in the mountains at golden hour",
   },
   {
-    src: `${U}1478131143081-80f7f84ca84d${H}`,
-    alt: "Illuminated camping tent under a starry night sky in the woods",
+    src: `${U}1785851099610-30a72cb36602${H}`,
+    alt: "Glowing camping tent and warm campfire in a forest campsite at twilight",
   },
 ];
 

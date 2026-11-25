@@ -46,6 +46,7 @@ export function HeroSection() {
   }, [prefersReduced, activeSlide]);
 
   const currentImage = HERO_IMAGES[activeSlide];
+  const currentCopy = t.hero.slides[activeSlide] ?? t.hero;
   const padNum = (n: number) => String(n).padStart(2, "0");
 
   return (
@@ -90,21 +91,21 @@ export function HeroSection() {
         <div className="max-w-3xl pb-8 sm:pb-10">
           <AnimatePresence mode="wait">
             <motion.div
-              key={language}
+              key={`${language}-${activeSlide}`}
               initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
+              exit={prefersReduced ? { opacity: 0 } : { opacity: 0, y: -12 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="flex items-center gap-3">
                 <span className="h-px w-6 bg-[#4EA879]" aria-hidden="true" />
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90">
-                  {t.hero.eyebrow}
+                  {currentCopy.eyebrow}
                 </p>
               </div>
 
               <h1 className="font-display mt-4 text-[clamp(2.85rem,6.5vw,5.4rem)] font-semibold leading-[0.98] tracking-tight text-white drop-shadow-sm">
-                {t.hero.title}
+                {currentCopy.title}
               </h1>
 
               <p className="font-display mt-4 text-xl italic text-white/90 sm:text-2xl">
@@ -112,7 +113,7 @@ export function HeroSection() {
               </p>
 
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
-                {t.hero.subtitle}
+                {currentCopy.subtitle}
               </p>
 
               {/* Transparent Glassmorphism CTA Buttons */}
