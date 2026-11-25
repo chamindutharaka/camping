@@ -162,7 +162,7 @@ export function HeroSection() {
 
           <a
             href="#packages"
-            className="inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/80 transition-colors hover:text-[#4EA879]"
+            className="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/80 transition-colors hover:text-[#4EA879] sm:inline-flex"
           >
             <span>SCROLL</span>
             <span
